@@ -8,19 +8,19 @@
             <nuxt-link to="/">Home</nuxt-link>
           </li>
           <li>
-            <nuxt-link to="/recept">Recept</nuxt-link>
+            <nuxt-link to="/recepies">Recept</nuxt-link>
           </li>
           <li>
-            <nuxt-link to="/registrering">Registrering</nuxt-link>
+            <nuxt-link to="/registration">Registrering</nuxt-link>
           </li>
           <li>
-            <nuxt-link to="/loggaIn">Logga In</nuxt-link>
+            <nuxt-link to="/login">Logga In</nuxt-link>
           </li>
           <li>
-            <nuxt-link to="/mittKonto">Mitt Konto</nuxt-link>
+            <nuxt-link to="/myAccount">Mitt Konto</nuxt-link>
           </li>
           <li>
-            <nuxt-link to="/loggaUt">Logga ut</nuxt-link>
+            <nuxt-link to="/logout">Logga ut</nuxt-link>
           </li>
           
         </ul>
