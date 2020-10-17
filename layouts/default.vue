@@ -1,6 +1,36 @@
 <template>
+
   <div>
-    <nuxt />
+    <div>
+      <nav>
+        <ul>
+          <li>
+            <nuxt-link to="/">Home</nuxt-link>
+          </li>
+          <li>
+            <nuxt-link to="/recepies">Recept</nuxt-link>
+          </li>
+          <li>
+            <nuxt-link to="/registration">Registrering</nuxt-link>
+          </li>
+          <li>
+            <nuxt-link to="/login">Logga In</nuxt-link>
+          </li>
+          <li>
+            <nuxt-link to="/myAccount">Mitt Konto</nuxt-link>
+          </li>
+          <li>
+            <nuxt-link to="/logout">Logga ut</nuxt-link>
+          </li>
+          
+        </ul>
+      </nav>
+    </div>
+
+    <div>
+      <nuxt />
+    </div>
+    
   </div>
 </template>
 
