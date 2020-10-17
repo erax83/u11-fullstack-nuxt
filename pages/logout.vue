@@ -1,5 +1,9 @@
 <template>
-  <h2>Logga Ut</h2>
+  <div>
+    <h2>Logga Ut</h2>
+    <p>Loggar ut...</p>
+  </div>
+  
 </template>
 
 <script>
