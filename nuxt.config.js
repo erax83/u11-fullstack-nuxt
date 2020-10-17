@@ -59,7 +59,7 @@ module.exports = {
   },
 
   serverMiddleware: [
-    '~/backend/index.js'
+    '~/api/index.js'
 ]
 
 }
