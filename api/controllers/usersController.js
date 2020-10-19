@@ -29,7 +29,7 @@ module.exports.register = [
   
       
       var user = new User({
-          user_name : req.body.full_name,
+          user_name : req.body.user_name,
           email : req.body.email,
           password : req.body.password,
       })

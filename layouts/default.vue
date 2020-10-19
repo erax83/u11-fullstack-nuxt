@@ -11,16 +11,16 @@
             <nuxt-link to="/recepies">Recept</nuxt-link>
           </li>
           <li>
-            <nuxt-link to="/registration">Registrering</nuxt-link>
+            <nuxt-link to="/user/register">Registrering</nuxt-link>
           </li>
           <li>
-            <nuxt-link to="/login">Logga In</nuxt-link>
+            <nuxt-link to="/user/login">Logga In</nuxt-link>
           </li>
           <li>
-            <nuxt-link to="/myAccount">Mitt Konto</nuxt-link>
+            <nuxt-link to="/user/myAccount">Mitt Konto</nuxt-link>
           </li>
           <li>
-            <nuxt-link to="/logout">Logga ut</nuxt-link>
+            <nuxt-link to="/user/logout">Logga ut</nuxt-link>
           </li>
           
         </ul>
