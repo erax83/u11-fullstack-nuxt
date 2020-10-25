@@ -1,8 +1,7 @@
 <template>
   <div>
-    <h2>Registrering</h2>
-    
-    <form action="" method="post" @submit.prevent="submitForm()">
+      <h1>Reg</h1>
+      <form action="" method="post" @submit.prevent="submitForm()">
       <div>
         <label for>Användarnamn</label>
         <input type="text" v-model="user_name" />
@@ -19,7 +18,6 @@
       
       <nuxt-link to="/">Avbryt</nuxt-link>
     </form>
-    
   </div>
 </template>
 
@@ -37,8 +35,9 @@ export default {
     };
   },
   methods: {
+    
     submitForm() {
-      auth: 'guest';
+    auth: 'guest';
       console.log(this.user_name);
       this.$axios.post( '/api/users/register', {
           user_name: this.user_name,
@@ -46,7 +45,7 @@ export default {
           password: this.password,
         })
         .then((response) => {
-          console.log(response)
+          //console.log(response)
           if(response.data._id){
             this.$router.push({ name:'user-login', params:{ registered:'yes' } })
             
@@ -74,4 +73,5 @@ export default {
 </script>
 
 <style>
+
 </style>

@@ -22,6 +22,9 @@
           <li>
             <nuxt-link to="/user/logout">Logga ut</nuxt-link>
           </li>
+          <li>
+            <nuxt-link to="/user/reg">Reg</nuxt-link>
+          </li>
           
         </ul>
       </nav>

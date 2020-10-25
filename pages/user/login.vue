@@ -21,6 +21,15 @@
 
 <script>
 export default {
+  data() {
+    return {
+      errors: null,
+      user_name: null,
+      email: null,
+      password: null,
+      status: false
+    };
+  },
 
 }
 </script>

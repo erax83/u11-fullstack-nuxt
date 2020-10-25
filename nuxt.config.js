@@ -83,5 +83,11 @@ module.exports = {
     extend(config, ctx) {}
   },
 
+  router: {
+    middleware: [
+      'auth',
+    ]
+  },
+
   serverMiddleware: ["~/api/index.js"]
 };
