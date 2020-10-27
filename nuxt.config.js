@@ -61,12 +61,13 @@ module.exports = {
         tokenType: "Bearer"
       }
     },
-    redirect: {
-      login: "/user/login", 
-      logout: "/", 
-      home: "/" 
-    },
-    rewriteRedirects: true
+    redirect: false,
+    // redirect: {
+    //   login: "/user/login", 
+    //   logout: "/", 
+    //   home: "/" 
+    // },
+    // rewriteRedirects: true
   },
   /*
    ** Axios module configuration

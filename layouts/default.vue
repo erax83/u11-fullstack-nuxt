@@ -22,9 +22,6 @@
           <li>
             <nuxt-link to="/user/logout">Logga ut</nuxt-link>
           </li>
-          <li>
-            <nuxt-link to="/">Cancel</nuxt-link>
-          </li>
           
           
         </ul>

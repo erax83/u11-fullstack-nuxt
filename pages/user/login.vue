@@ -28,16 +28,18 @@
             </div>
           </div>
 
-         
-
           <input type="submit" value="Login">
           <nuxt-link to="/">Cancel</nuxt-link>
-
-        </form>
-    <div
+          <div
         v-if="$auth.loggedIn">
         <p>Inloggad</p>
       </div>
+
+        </form>
+    <!-- <div
+        v-if="$auth.loggedIn">
+        <p>Inloggad</p>
+      </div> -->
   </div>
 </template>
 
