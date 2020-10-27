@@ -4,23 +4,46 @@
   <div>
     <h2>Logga In</h2>
 
-    <form action="" method="post" @submit.prevent="submitForm()">
-      <div>
-        <label for="">E-post</label>
-        <input type="text" v-model="email">
+    <form action=""
+          method="post"
+          @submit.prevent="submitForm()">
+
+          <div>
+            <label for="">Email</label>
+            <input type="text" class="form-control"
+              :class="{ 'is-invalid': errors && errors.email }"
+              v-model="email">
+            <div class="invalid-feedback" v-if="errors && errors.email">
+              {{ errors.email.msg }}
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="">Password</label>
+            <input type="password" class="form-control"
+              :class="{ 'is-invalid': errors && errors.password }"
+              v-model="password">
+            <div class="invalid-feedback" v-if="errors && errors.password">
+              {{ errors.password.msg }}
+            </div>
+          </div>
+
+         
+
+          <input type="submit" value="Login">
+          <nuxt-link to="/">Cancel</nuxt-link>
+
+        </form>
+    <div
+        v-if="$auth.loggedIn">
+        <p>Inloggad</p>
       </div>
-      <div>
-        <label for="">Lösenord</label>
-        <input type="text" v-model="password">
-      </div>
-      <input type="submit" value="Login">
-      <nuxt-link to="/">Avbryt</nuxt-link>
-    </form>
   </div>
 </template>
 
 <script>
 export default {
+  middleware: 'auth',
   data() {
     return {
       errors: null,
@@ -30,6 +53,23 @@ export default {
       status: false
     };
   },
+  methods: {
+    submitForm() {
+      auth: 'guest';
+      this.$auth.loginWith('local', {
+        data: {
+          email: this.email,
+          password: this.password
+        }
+      })
+      .catch( (error) => {
+          console.log(error)
+          if(error.response.data.message){
+            this.login_error = error.response.data.message
+          }
+        });
+    }
+  }
 
 }
 </script>

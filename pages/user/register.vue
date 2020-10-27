@@ -17,6 +17,10 @@
       </div>
       <input type="submit" value="Registrera" />
       
+      <div
+        v-if="$auth.loggedIn">
+        <p>Inloggad</p>
+      </div>
       <nuxt-link to="/">Avbryt</nuxt-link>
     </form>
     

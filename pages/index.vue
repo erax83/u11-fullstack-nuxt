@@ -1,15 +1,14 @@
 <template>
-  <div class="container">
+  <div>
     <h1>Välkommen till Receptsidan!</h1>
+  
   </div>
 </template>
 
 <script>
 
 export default {
-  components: {
-    
-  }
+  middleware: 'auth',
 }
 </script>
 
