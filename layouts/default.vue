@@ -8,7 +8,10 @@
             <nuxt-link to="/">Home</nuxt-link>
           </li>
           <li>
-            <nuxt-link to="/recepies">Recept</nuxt-link>
+            <nuxt-link to="/recepie/allRecepies">Recept</nuxt-link>
+          </li>
+          <li>
+            <nuxt-link to="/recepie/addRecepies">Lägg till recept</nuxt-link>
           </li>
           <li>
             <nuxt-link to="/user/register">Registrering</nuxt-link>
