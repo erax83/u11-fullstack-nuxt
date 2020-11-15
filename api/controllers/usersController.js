@@ -89,6 +89,7 @@ module.exports.login = [
               config.authSecret
             ) // generate JWT token here
           });
+          
         } else {
           return res.status(500).json({
             message: "Du har angivit en felaktig e-post-address eller lösenord."

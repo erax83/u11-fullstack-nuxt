@@ -9,19 +9,19 @@
           <li>
             <nuxt-link to="/recepie/allRecepies">Recept</nuxt-link>
           </li>
-          <li>
+          <li v-if="$auth.loggedIn">
             <nuxt-link to="/recepie/addRecepies">Lägg till recept</nuxt-link>
           </li>
-          <li>
+          <li v-if="!$auth.loggedIn">
             <nuxt-link to="/user/register">Registrering</nuxt-link>
           </li>
-          <li>
+          <li v-if="!$auth.loggedIn">
             <nuxt-link to="/user/login">Logga In</nuxt-link>
           </li>
-          <li>
+          <li v-if="$auth.loggedIn">
             <nuxt-link to="/user/myAccount">Mitt Konto</nuxt-link>
           </li>
-          <li>
+          <li v-if="$auth.loggedIn">
             <nuxt-link to="/user/logout">Logga ut</nuxt-link>
           </li>
         </ul>
@@ -33,6 +33,13 @@
     </div>
   </div>
 </template>
+
+<script>
+export default {
+  middleware: "auth",
+
+}
+</script>
 
 <style>
 html {
