@@ -65,7 +65,7 @@ module.exports = {
     // redirect: {
     //   login: "/user/login", 
     //   logout: "/", 
-    //   home: "/" 
+    //   home: "/",
     // },
     // rewriteRedirects: true
   },

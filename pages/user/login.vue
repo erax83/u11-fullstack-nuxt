@@ -1,8 +1,8 @@
 <template>
   <div>
-    <h2>Logga In</h2>
+    <h2>Inloggning</h2>
 
-    <form action="" method="post" @submit.prevent="submitForm()">
+    <form v-if="!$auth.loggedIn" action="" method="post" @submit.prevent="submitForm()">
       <div>
         <label for="">Email</label>
         <input
@@ -29,16 +29,13 @@
         </div>
       </div>
 
-      <input type="submit" value="Login" />
+      <input v-if="!$auth.loggedIn" type="submit" value="Login" />
       <nuxt-link to="/">Cancel</nuxt-link>
-      <div v-if="$auth.loggedIn">
-        <p>Inloggad</p>
-      </div>
+      
     </form>
-    <!-- <div
-        v-if="$auth.loggedIn">
-        <p>Inloggad</p>
-      </div> -->
+    <div v-if="$auth.loggedIn">
+        <p>Du är inloggad</p>
+      </div>
   </div>
 </template>
 
