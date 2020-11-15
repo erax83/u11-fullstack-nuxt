@@ -1,5 +1,4 @@
 <template>
-
   <div>
     <div>
       <nav>
@@ -25,8 +24,6 @@
           <li>
             <nuxt-link to="/user/logout">Logga ut</nuxt-link>
           </li>
-          
-          
         </ul>
       </nav>
     </div>
@@ -34,14 +31,13 @@
     <div>
       <nuxt />
     </div>
-    
   </div>
 </template>
 
 <style>
 html {
-  font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI',
-    Roboto, 'Helvetica Neue', Arial, sans-serif;
+  font-family: "Source Sans Pro", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, "Helvetica Neue", Arial, sans-serif;
   font-size: 16px;
   word-spacing: 1px;
   -ms-text-size-adjust: 100%;

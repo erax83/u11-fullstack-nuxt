@@ -1,15 +1,14 @@
-const config = require('../config')
-const { Router } = require('express')
+const config = require("../config");
+const { Router } = require("express");
 
-const router = Router()
+const router = Router();
 
+const recepiesController = require("../controllers/recepiesController");
 
-const usersController = require('../controllers/usersController')
-
-router.post('/recepies/add', usersController.add)
+router.post("/recepies/add", recepiesController.add);
 
 // router.post('/users/login', usersController.login)
 
 // router.get('/users/user', usersController.user)
 
-module.exports = router
+module.exports = router;

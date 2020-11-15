@@ -1,41 +1,40 @@
 <template>
-  
-
   <div>
     <h2>Logga In</h2>
 
-    <form action=""
-          method="post"
-          @submit.prevent="submitForm()">
-
-          <div>
-            <label for="">Email</label>
-            <input type="text" class="form-control"
-              :class="{ 'is-invalid': errors && errors.email }"
-              v-model="email">
-            <div class="invalid-feedback" v-if="errors && errors.email">
-              {{ errors.email.msg }}
-            </div>
-          </div>
-
-          <div class="form-group">
-            <label for="">Password</label>
-            <input type="password" class="form-control"
-              :class="{ 'is-invalid': errors && errors.password }"
-              v-model="password">
-            <div class="invalid-feedback" v-if="errors && errors.password">
-              {{ errors.password.msg }}
-            </div>
-          </div>
-
-          <input type="submit" value="Login">
-          <nuxt-link to="/">Cancel</nuxt-link>
-          <div
-        v-if="$auth.loggedIn">
-        <p>Inloggad</p>
+    <form action="" method="post" @submit.prevent="submitForm()">
+      <div>
+        <label for="">Email</label>
+        <input
+          type="text"
+          class="form-control"
+          :class="{ 'is-invalid': errors && errors.email }"
+          v-model="email"
+        />
+        <div class="invalid-feedback" v-if="errors && errors.email">
+          {{ errors.email.msg }}
+        </div>
       </div>
 
-        </form>
+      <div class="form-group">
+        <label for="">Password</label>
+        <input
+          type="password"
+          class="form-control"
+          :class="{ 'is-invalid': errors && errors.password }"
+          v-model="password"
+        />
+        <div class="invalid-feedback" v-if="errors && errors.password">
+          {{ errors.password.msg }}
+        </div>
+      </div>
+
+      <input type="submit" value="Login" />
+      <nuxt-link to="/">Cancel</nuxt-link>
+      <div v-if="$auth.loggedIn">
+        <p>Inloggad</p>
+      </div>
+    </form>
     <!-- <div
         v-if="$auth.loggedIn">
         <p>Inloggad</p>
@@ -45,7 +44,7 @@
 
 <script>
 export default {
-  middleware: 'auth',
+  middleware: "auth",
   data() {
     return {
       errors: null,
@@ -57,25 +56,23 @@ export default {
   },
   methods: {
     submitForm() {
-      auth: 'guest';
-      this.$auth.loginWith('local', {
-        data: {
-          email: this.email,
-          password: this.password
-        }
-      })
-      .catch( (error) => {
-          console.log(error)
-          if(error.response.data.message){
-            this.login_error = error.response.data.message
+      auth: "guest";
+      this.$auth
+        .loginWith("local", {
+          data: {
+            email: this.email,
+            password: this.password
+          }
+        })
+        .catch(error => {
+          console.log(error);
+          if (error.response.data.message) {
+            this.login_error = error.response.data.message;
           }
         });
     }
   }
-
-}
+};
 </script>
 
-<style>
-
-</style>
+<style></style>
