@@ -117,4 +117,67 @@ module.exports.user = function(req, res) {
   } else {
     return res.status(401).json({ message: "unauthorized" });
   }
-};
+}
+
+// // Update
+// module.exports.update = [
+//   // validation rules
+//   // validator.body("title", "Please enter Article Title").isLength({ min: 1 }),
+//   // validator.body("title").custom((value, { req }) => {
+//   //   return Article.findOne({ title: value, _id: { $ne: req.params.id } }).then(
+//   //     article => {
+//   //       if (article !== null) {
+//   //         return Promise.reject("Title already in use");
+//   //       }
+//   //     }
+//   //   );
+//   // }),
+//   validator
+//     .body("userRecepies", "Please enter recepie")
+//     .isLength({ min: 1 }),
+//   validator.body("body", "Please enter User Content").isLength({ min: 1 }),
+
+//   function(req, res) {
+//     // throw validation errors
+//     const errors = validator.validationResult(req);
+//     if (!errors.isEmpty()) {
+//       return res.status(422).json({ errors: errors.mapped() });
+//     }
+
+//     var id = req.params.id;
+//     User.findOne({ _id: id }, function(err, user) {
+//       if (err) {
+//         return res.status(500).json({
+//           message: "Error saving record",
+//           error: err
+//         });
+//       }
+//       if (!user) {
+//         return res.status(404).json({
+//           message: "No such record"
+//         });
+//       }
+
+//       // initialize record
+//       user.userRecepies = req.body.userRecepies
+//         ? req.body.userRecepies
+//         : body.userRecepies;
+
+//       // save record
+//       user.save(function(err, user) {
+//         if (err) {
+//           return res.status(500).json({
+//             message: "Error getting record."
+//           });
+//         }
+//         if (!user) {
+//           return res.status(404).json({
+//             message: "No such record"
+//           });
+//         }
+//         return res.json(user);
+//       });
+//     });
+//   }
+// ];
+

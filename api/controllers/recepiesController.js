@@ -54,3 +54,15 @@ module.exports.add = [
     });
   }
 ];
+
+// Get all
+module.exports.list = function (req, res, next) {
+  Recepie.find({}, function(err, recepies){
+    if(err) {
+        return res.status(500).json({
+            message: 'Error getting records.'
+        });
+    }
+    return res.json(recepies);
+  });
+}

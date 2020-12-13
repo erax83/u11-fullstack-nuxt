@@ -5,10 +5,11 @@ const router = Router();
 
 const recepiesController = require("../controllers/recepiesController");
 
+// Add one
 router.post("/recepies/add", recepiesController.add);
 
-// router.post('/users/login', usersController.login)
+// Get all
+router.get("/recepies", recepiesController.list);
 
-// router.get('/users/user', usersController.user)
 
 module.exports = router;

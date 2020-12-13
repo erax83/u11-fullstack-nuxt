@@ -11,4 +11,8 @@ router.post("/users/login", usersController.login);
 
 router.get("/users/user", usersController.user);
 
+// router.put("/users/:id", usersController.update);
+
+// router.update("/users/addUserRecepie", usersController.addUserRecepie);
+
 module.exports = router;

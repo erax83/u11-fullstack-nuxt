@@ -33,18 +33,60 @@ export default {
       title: null,
       ingrediences: null,
       instructions: null,
-      status: false
+      myRecepies: null,
+      status: false,
+      recepieId: null
     };
   },
   methods: {
     submitForm() {
       auth: "guest";
       console.log(this.title);
-      this.$axios.post("/api/recepies/add", {
-        title: this.title,
-        ingrediences: this.ingrediences,
-        instructions: this.instructions
-      });
+
+      this.$axios
+        .post("/api/recepies/add", {
+          title: this.title,
+          ingrediences: this.ingrediences,
+          instructions: this.instructions
+        })
+        .then(response => {
+          // const test = JSON.stringify(response);
+          // console.log('Test: ' + test);
+          // console.log(response);
+          // console.log("Recepie id: " + response);
+          console.log("Recepie id: " + response.data._id);
+          this.recepieId = response.data._id;
+
+          this.addToUser();
+        });
+    },
+    addToUser() {
+      auth: "guest";
+      const userId = this.$auth.user._id;
+      console.log("Auth id: " + this.$auth.user._id);
+      console.log("RecepieId: " + this.recepieId);
+
+      // this.$axios
+      //   .put("/api/users/update" + this.$route.params.id, {
+      //     $push: {
+      //       recepieId: this.recepieId
+      //     }
+          
+      //   })
+      //   .then(response => {
+      //     console.log("put then: ");
+      //     console.log(response);
+      //     if (response.data._id) {
+      //       this.$router.push({ name: "users", params: { created: "yes" } });
+      //     }
+      //   })
+      //   .catch(error => {
+      //     console.log("put error: ");
+      //     console.log(error);
+      //     if (error.response.data.errors) {
+      //       this.errors = error.response.data.errors;
+      //     }
+      //   });
     }
   }
 };

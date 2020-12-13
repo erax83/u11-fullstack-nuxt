@@ -9,6 +9,9 @@
           <li>
             <nuxt-link to="/recepie/allRecepies">Recept</nuxt-link>
           </li>
+          <li>
+            <nuxt-link to="/recepie/search">Sök</nuxt-link>
+          </li>
           <li v-if="$auth.loggedIn">
             <nuxt-link to="/recepie/addRecepies">Lägg till recept</nuxt-link>
           </li>
