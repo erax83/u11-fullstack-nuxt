@@ -22,6 +22,10 @@ module.exports.add = [
     .body("instructions", "Fyll i dina instruktioner.")
     .isLength({ min: 1 }),
 
+  validator
+    .body("author", "Fyll i din författare.")
+    .isLength({ min: 1 }),
+
   function(req, res) {
     console.log("inside controller");
     const errors = validator.validationResult(req);
@@ -33,7 +37,8 @@ module.exports.add = [
     var recepie = new Recepie({
       title: req.body.title,
       ingrediences: req.body.ingrediences,
-      instructions: req.body.instructions
+      instructions: req.body.instructions,
+      author: req.body.author
     });
 
     //   var salt = bcrypt.genSaltSync(10);

@@ -28,6 +28,7 @@
 export default {
   middleware: "auth",
   data() {
+    // auth: "guest";
     return {
       errors: null,
       title: null,
@@ -35,7 +36,8 @@ export default {
       instructions: null,
       myRecepies: null,
       status: false,
-      recepieId: null
+      recepieId: null,
+      // author: this.$auth.user.user_name
     };
   },
   methods: {
@@ -47,13 +49,15 @@ export default {
         .post("/api/recepies/add", {
           title: this.title,
           ingrediences: this.ingrediences,
-          instructions: this.instructions
+          instructions: this.instructions,
+          author: this.$auth.user.user_name
         })
         .then(response => {
           // const test = JSON.stringify(response);
           // console.log('Test: ' + test);
           // console.log(response);
           // console.log("Recepie id: " + response);
+          // console.log('auth: ' + $auth.user);
           console.log("Recepie id: " + response.data._id);
           this.recepieId = response.data._id;
 
@@ -63,7 +67,7 @@ export default {
     addToUser() {
       auth: "guest";
       const userId = this.$auth.user._id;
-      console.log("Auth id: " + this.$auth.user._id);
+      console.log("Auth id: " + this.$auth.user.user_name);
       console.log("RecepieId: " + this.recepieId);
 
       // this.$axios

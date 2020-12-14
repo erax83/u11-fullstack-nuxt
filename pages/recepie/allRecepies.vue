@@ -25,6 +25,9 @@
     <div v-if="$auth.loggedIn">
       <p>Inloggad</p>
     </div>
+    <div v-if="$auth.loggedIn">
+      <p>{{$auth.user}}</p>
+    </div>
   </div>
 </template>
 
@@ -34,11 +37,16 @@ export default {
   data() {
     return {
       testRecepies: null,
-      recepies: []
+      recepies: [],
+      // userInfo: $auth.user
     };
   },
   async asyncData(context) {
+    // auth: "guest";
     const { data } = await context.$axios.get("/api/recepies");
+    // console.log("Auth id: " + this.$auth.user.user_name);
+    // console.log(auth.user);
+    // console.log(this.userInfo);
     return {
       recepies: data
     };
