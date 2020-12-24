@@ -4,7 +4,7 @@
     <div v-if="$auth.loggedIn">
       <p>Inloggad</p>
     </div>
-    <input type="text" v-model="searchWord" v-on:input="search" />
+    <input type="text" v-model="searchWord" v-on:input="search"/>
     <!-- <div v-if="recepies.length"> -->
       <!-- <nuxt-link
           class="list-group-item list-group-item-action"
@@ -70,14 +70,18 @@ export default {
       var oldArray = this.recepies;
       var newArray = [];
       for (var i = 0; i < oldArray.length; i++) {
+        if (this.searchWord == null) {
+          newArray = null;
+          break;
+        }
         if (oldArray[i].title.includes(this.searchWord)) {
           newArray.push(oldArray[i]);
         }
       }
-      console.log(newArray);
       this.testRecepies = newArray;
     }
-  }
+  },
+  
   // async asyncData(context) {
   //   const { data } = await context.$axios.get("/api/recepies");
   //   var allRecepies = [];

@@ -13,8 +13,11 @@
           
         </nuxt-link> -->
         <ul v-for="recepie in recepies" :key="recepie._id">
-          <li>
+          <li @click="showRecepie(recepie)">
             {{ recepie.title }}
+            
+            <!-- <nuxt-link to="/recepie/oneRecepie">{{recepie.title}}</nuxt-link> -->
+
           </li>
         </ul>
       </div>
@@ -26,27 +29,48 @@
       <p>Inloggad</p>
     </div>
     <div v-if="$auth.loggedIn">
-      <p>{{$auth.user}}</p>
+      <p>{{ $auth.user }}</p>
+    </div>
+    <div>
+      <Recepie :currentRecepie="this.currentRecepie"/>
     </div>
   </div>
 </template>
 
 <script>
+// import Recepie from 'components/Recepie.vue';
+// import oneRecepie from './oneRecepie.vue';
+import Recepie from "~/components/Recepie.vue";
+
 export default {
+  components: { Recepie },
   middleware: "auth",
+  components: {
+    Recepie
+  },
   data() {
     return {
       testRecepies: null,
       recepies: [],
-      // userInfo: $auth.user
+      recepieToggle: false,
+      currentRecepie: Object
     };
   },
+  methods: {
+    toggle: function(event) {
+      event.target.classList.toggle("is-open");
+    },
+    showRecepie: function(recepie) {
+      this.currentRecepie = recepie;
+      console.log(this.currentRecepie);
+    }
+    // addRecepies: function(data) {
+    //   this.$store.commit("changeRecepies", data);
+    // }
+  },
   async asyncData(context) {
-    // auth: "guest";
     const { data } = await context.$axios.get("/api/recepies");
-    // console.log("Auth id: " + this.$auth.user.user_name);
-    // console.log(auth.user);
-    // console.log(this.userInfo);
+    // await addRecepies(data);
     return {
       recepies: data
     };

@@ -19,7 +19,12 @@
       <ul v-for="recepie in recepies" :key="recepie._id">
         <li>
           {{ recepie.title }}
+           
         </li>
+        <!-- <li>
+          <nuxt-link to="/recepie/oneRecepie" :recepie="recepie" :key="recepie._id">One Recepie</nuxt-link>
+        </li> -->
+       
       </ul>
     </div>
     <div v-else>
