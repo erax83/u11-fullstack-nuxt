@@ -22,9 +22,7 @@ module.exports.add = [
     .body("instructions", "Fyll i dina instruktioner.")
     .isLength({ min: 1 }),
 
-  validator
-    .body("author", "Fyll i din författare.")
-    .isLength({ min: 1 }),
+  validator.body("author", "Fyll i din författare.").isLength({ min: 1 }),
 
   function(req, res) {
     console.log("inside controller");
@@ -61,13 +59,27 @@ module.exports.add = [
 ];
 
 // Get all
-module.exports.list = function (req, res, next) {
-  Recepie.find({}, function(err, recepies){
-    if(err) {
-        return res.status(500).json({
-            message: 'Error getting records.'
-        });
+module.exports.list = function(req, res, next) {
+  Recepie.find({}, function(err, recepies) {
+    if (err) {
+      return res.status(500).json({
+        message: "Error getting records."
+      });
     }
     return res.json(recepies);
   });
-}
+};
+
+// Delete
+module.exports.delete = function(req, res) {
+  console.log('inside delete controller');
+  var id = req.params.id;
+  Recepie.findByIdAndRemove(id, function(err, recepie) {
+    if (err) {
+      return res.status(500).json({
+        message: "Error getting record."
+      });
+    }
+    return res.json(recepie);
+  });
+};

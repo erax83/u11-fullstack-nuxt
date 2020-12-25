@@ -11,5 +11,8 @@ router.post("/recepies/add", recepiesController.add);
 // Get all
 router.get("/recepies", recepiesController.list);
 
+//Delete one
+router.delete("/recepies/:id", recepiesController.delete);
+
 
 module.exports = router;
