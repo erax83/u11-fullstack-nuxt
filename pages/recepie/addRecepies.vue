@@ -60,8 +60,9 @@ export default {
           // console.log('auth: ' + $auth.user);
           console.log("Recepie id: " + response.data._id);
           this.recepieId = response.data._id;
-
+          alert('Recept registrerat!')
           this.addToUser();
+          window.location.reload(true);
         });
     },
     addToUser() {

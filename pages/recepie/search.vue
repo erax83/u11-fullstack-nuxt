@@ -4,9 +4,9 @@
     <div v-if="$auth.loggedIn">
       <p>Inloggad</p>
     </div>
-    <input type="text" v-model="searchWord" v-on:input="search"/>
+    <input type="text" v-model="searchWord" v-on:input="search" />
     <!-- <div v-if="recepies.length"> -->
-      <!-- <nuxt-link
+    <!-- <nuxt-link
           class="list-group-item list-group-item-action"
           :to="'/articles/' + recepie._id"
           v-for="recepie in recepies"
@@ -15,7 +15,7 @@
          {{recepie.title}}
           
         </nuxt-link> -->
-      <!-- <ul v-for="recepie in recepies" :key="recepie._id">
+    <!-- <ul v-for="recepie in recepies" :key="recepie._id">
         <li>
           {{ recepie.title }}
         </li>
@@ -25,8 +25,6 @@
       No records found.
     </div> -->
 
-
-    
     <div v-if="testRecepies.length">
       <!-- <nuxt-link
           class="list-group-item list-group-item-action"
@@ -38,7 +36,7 @@
           
         </nuxt-link> -->
       <ul v-for="testRecepie in testRecepies" :key="testRecepie._id">
-        <li>
+        <li @click="showRecepie(testRecepie)">
           {{ testRecepie.title }}
         </li>
       </ul>
@@ -46,17 +44,24 @@
     <div v-else>
       No records found.
     </div>
+    <div>
+      <Recepie :currentRecepie="this.currentRecepie" />
+    </div>
   </div>
 </template>
 
 <script>
+import Recepie from "~/components/Recepie.vue";
+
 export default {
   middleware: "auth",
+  components: { Recepie },
   data() {
     return {
       testRecepies: [],
       searchWord: null,
-      recepies: []
+      recepies: [],
+      currentRecepie: Object
     };
   },
   async asyncData(context) {
@@ -69,19 +74,24 @@ export default {
     search() {
       var oldArray = this.recepies;
       var newArray = [];
+
       for (var i = 0; i < oldArray.length; i++) {
-        if (this.searchWord == null) {
-          newArray = null;
-          break;
-        }
-        if (oldArray[i].title.includes(this.searchWord)) {
+        if (
+          oldArray[i].title
+            .toLowerCase()
+            .includes(this.searchWord.toLowerCase())
+        ) {
           newArray.push(oldArray[i]);
         }
       }
       this.testRecepies = newArray;
+    },
+    showRecepie: function(recepie) {
+      this.currentRecepie = recepie;
+      console.log(this.currentRecepie);
     }
-  },
-  
+  }
+
   // async asyncData(context) {
   //   const { data } = await context.$axios.get("/api/recepies");
   //   var allRecepies = [];

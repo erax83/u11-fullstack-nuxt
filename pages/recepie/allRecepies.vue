@@ -38,8 +38,6 @@
 </template>
 
 <script>
-// import Recepie from 'components/Recepie.vue';
-// import oneRecepie from './oneRecepie.vue';
 import Recepie from "~/components/Recepie.vue";
 
 export default {
