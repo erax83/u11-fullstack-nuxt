@@ -1,10 +1,12 @@
 <template>
   <div>
-    <h2>Recept Component</h2>
     <h2>{{ currentRecepie.title }}</h2>
+    <br>
     <p>{{ currentRecepie.ingrediences }}</p>
+    <br>
     <p>{{ currentRecepie.instructions }}</p>
-    <p>{{ currentRecepie.author }}</p>
+    <br>
+    <p>Receptet inlaggt av: {{ currentRecepie.author }}</p>
 
   </div>
 </template>

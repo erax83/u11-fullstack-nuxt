@@ -2,18 +2,39 @@
   <div>
     <h1>Lägg till recept</h1>
     <form action="" method="post" @submit.prevent="submitForm()">
-      <div>
-        <label for>Recept Titel</label>
-        <input type="text" v-model="title" />
-      </div>
-      <div>
-        <label for>Ingredienser</label>
-        <input type="text" v-model="ingrediences" />
-      </div>
-      <div>
-        <label for>Instruktioner</label>
-        <input type="text" v-model="instructions" />
-      </div>
+      <label for="title">Recept Titel</label>
+      <br>
+      <input id="title" type="text" v-model="title" />
+      <br>
+      <label for="ingrediences">Ingredienser</label>
+      <p>Använd ett mått eller antal samt ingrediens per rad.</p>
+      <p>Exempel:</p>
+      <p>100 g smör</p>
+      <p>1 dl mjöl</p>
+      <br>
+      <textarea
+        id="ingrediences"
+        type="text"
+        rows="10"
+        cols="30"
+        v-model="ingrediences"
+      />
+      <br>
+      <br>
+      <label for="instructions">Instruktioner</label>
+      <p>Använd nummer och ny rad för varge nytt moment.</p>
+      <p>Exempel:</p>
+      <p>1. Smält smöret</p>
+      <p>2. Blanda mjöl, socker och salt i en bunke.</p>
+      <br>
+      <textarea
+        id="instructions"
+        type="text"
+        rows="10"
+        cols="30"
+        v-model="instructions"
+      />
+      <br>
       <input type="submit" value="Registrera" />
 
       <div v-if="$auth.loggedIn">
@@ -36,7 +57,7 @@ export default {
       instructions: null,
       myRecepies: null,
       status: false,
-      recepieId: null,
+      recepieId: null
       // author: this.$auth.user.user_name
     };
   },
@@ -60,7 +81,7 @@ export default {
           // console.log('auth: ' + $auth.user);
           console.log("Recepie id: " + response.data._id);
           this.recepieId = response.data._id;
-          alert('Recept registrerat!')
+          alert("Recept registrerat!");
           this.addToUser();
           window.location.reload(true);
         });
@@ -76,7 +97,7 @@ export default {
       //     $push: {
       //       recepieId: this.recepieId
       //     }
-          
+
       //   })
       //   .then(response => {
       //     console.log("put then: ");
