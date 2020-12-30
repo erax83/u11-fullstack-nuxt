@@ -1,6 +1,7 @@
 <template>
   <div>
     <div>
+      <h1>Receptcirkeln</h1>
       <nav>
         <ul>
           <li>
