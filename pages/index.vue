@@ -1,16 +1,16 @@
 <template>
-  <div class="container">
+  <div>
     <h1>Välkommen till Receptsidan!</h1>
+    <div v-if="$auth.loggedIn">
+      <p>Inloggad</p>
+    </div>
   </div>
 </template>
 
 <script>
-
 export default {
-  components: {
-    
-  }
-}
+  middleware: "auth"
+};
 </script>
 
 <style>
@@ -24,8 +24,8 @@ export default {
 }
 
 .title {
-  font-family: 'Quicksand', 'Source Sans Pro', -apple-system, BlinkMacSystemFont,
-    'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  font-family: "Quicksand", "Source Sans Pro", -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   display: block;
   font-weight: 300;
   font-size: 100px;
