@@ -23,7 +23,7 @@
             <nuxt-link to="/user/login">Logga In</nuxt-link>
           </li>
           <li v-if="$auth.loggedIn">
-            <nuxt-link to="/user/myAccount">Mitt Konto</nuxt-link>
+            <nuxt-link to="/user/myAccount">Min Sida</nuxt-link>
           </li>
           <li v-if="$auth.loggedIn">
             <nuxt-link to="/user/logout">Logga ut</nuxt-link>
@@ -46,9 +46,10 @@ export default {
 </script>
 
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Mansalva&display=swap');
+
 html {
-  font-family: "Source Sans Pro", -apple-system, BlinkMacSystemFont, "Segoe UI",
-    Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-family: Mansalva;
   font-size: 16px;
   word-spacing: 1px;
   -ms-text-size-adjust: 100%;

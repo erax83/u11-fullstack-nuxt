@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h2>Mitt Konto</h2>
+    <h2>Min Sida</h2>
     <div v-if="$auth.loggedIn">
       <p>Inloggad</p>
     </div>
