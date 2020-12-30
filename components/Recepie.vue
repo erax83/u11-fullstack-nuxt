@@ -2,9 +2,9 @@
   <div>
     <h2>{{ currentRecepie.title }}</h2>
     <br>
-    <p>{{ currentRecepie.ingrediences }}</p>
+    <p style="white-space: pre-line">{{ currentRecepie.ingrediences }}</p>
     <br>
-    <p>{{ currentRecepie.instructions }}</p>
+    <p style="white-space: pre-line">{{ currentRecepie.instructions }}</p>
     <br>
 
   </div>

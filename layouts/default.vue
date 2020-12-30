@@ -30,6 +30,7 @@
           </li>
         </ul>
       </nav>
+      <hr>
     </div>
 
     <div>
