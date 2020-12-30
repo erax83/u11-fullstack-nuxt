@@ -6,7 +6,6 @@
     <br>
     <p>{{ currentRecepie.instructions }}</p>
     <br>
-    <p>Receptet inlaggt av: {{ currentRecepie.author }}</p>
 
   </div>
 </template>

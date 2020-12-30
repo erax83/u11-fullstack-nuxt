@@ -40,16 +40,16 @@
 
 <script>
 export default {
-  middleware: "auth",
-
-}
+  middleware: "auth"
+};
 </script>
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Mansalva&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Mansalva&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Satisfy&display=swap');
 
 html {
-  font-family: Mansalva;
+  font-family: Satisfy;
   font-size: 16px;
   word-spacing: 1px;
   -ms-text-size-adjust: 100%;
@@ -57,6 +57,32 @@ html {
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   box-sizing: border-box;
+}
+
+body {
+  background: linear-gradient(
+      90deg,
+      rgba(255, 225, 132, 0.7) 50%,
+      rgba(255, 255, 255, 0) 50%
+    ),
+    linear-gradient(
+      90deg,
+      rgba(32, 113, 120, 0.3) 50%,
+      rgba(255, 255, 255, 0) 50%
+    ),
+    linear-gradient(
+      90deg,
+      rgba(255, 150, 102, 0.3) 50%,
+      rgba(255, 255, 255, 0) 50%
+    ),
+    linear-gradient(
+      90deg,
+      rgba(23, 76, 79, 0.1) 50%,
+      rgba(255, 255, 255, 0) 50%
+    );
+  background-size: 7em 7em, 5em 5em, 3em 3em, 1em 1em;
+  background-color: #f5e9be;
+  /* font: 10px/1.4 "Trebuchet MS", Verdana, sans-serif; */
 }
 
 *,

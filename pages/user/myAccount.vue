@@ -4,7 +4,7 @@
     <div v-if="$auth.loggedIn">
       <p>Inloggad</p>
     </div>
-
+    <h3>Mina recept:</h3>
     <div v-if="recepies.length">
       <!-- <nuxt-link
           class="list-group-item list-group-item-action"
