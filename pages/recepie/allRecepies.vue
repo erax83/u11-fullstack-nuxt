@@ -28,10 +28,11 @@
     <div v-if="$auth.loggedIn">
       <p>Inloggad</p>
     </div>
-    <div v-if="$auth.loggedIn">
+    <!-- <div v-if="$auth.loggedIn">
       <p>{{ $auth.user }}</p>
-    </div>
-    <div>
+    </div> -->
+    <hr>
+    <div v-if="this.currentRecepie != null">
       <Recepie :currentRecepie="this.currentRecepie"/>
     </div>
   </div>
@@ -51,7 +52,7 @@ export default {
       testRecepies: null,
       recepies: [],
       recepieToggle: false,
-      currentRecepie: Object
+      currentRecepie: null
     };
   },
   methods: {
@@ -76,4 +77,11 @@ export default {
 };
 </script>
 
-<style></style>
+<style scoped>
+.search-list {
+  height: 100px;
+  width: 100%;
+  overflow: hidden;
+  overflow-y: scroll;
+}
+</style>

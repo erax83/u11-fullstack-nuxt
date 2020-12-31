@@ -5,7 +5,7 @@
       <p>Inloggad</p>
     </div>
     <h3>Mina recept:</h3>
-    <div v-if="recepies.length">
+    <div class="recepie-list" v-if="recepies.length">
       <!-- <nuxt-link
           class="list-group-item list-group-item-action"
           :to="'/articles/' + recepie._id"
@@ -21,7 +21,7 @@
         </li>
         <div v-if="$auth.user.user_name == recepie.author">
           <button v-on:click="deleteRecepie(recepie._id)">
-            Delete recepie
+            Radera Recept
           </button>
         </div>
 
@@ -33,6 +33,7 @@
     <div v-else>
       No records found.
     </div>
+    <hr />
     <div>
       <Recepie :currentRecepie="this.currentRecepie" />
     </div>
@@ -80,7 +81,7 @@ export default {
     },
     deleteRecepie(recepieId) {
       auth: "guest";
-      if (confirm("Are you sure?") === true) {
+      if (confirm("Är du säker?") === true) {
         this.$axios
           .delete("/api/recepies/" + recepieId)
           .then(response => {
@@ -103,4 +104,11 @@ export default {
 };
 </script>
 
-<style></style>
+<style scoped>
+.recepie-list {
+  height: 100px;
+  width: 100%;
+  overflow: hidden;
+  overflow-y: scroll;
+}
+</style>

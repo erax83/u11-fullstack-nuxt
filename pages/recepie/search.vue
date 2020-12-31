@@ -25,7 +25,7 @@
       No records found.
     </div> -->
 
-    <div v-if="testRecepies.length">
+    <div class="search-list" v-if="testRecepies.length">
       <!-- <nuxt-link
           class="list-group-item list-group-item-action"
           :to="'/articles/' + recepie._id"
@@ -35,16 +35,17 @@
          {{recepie.title}}
           
         </nuxt-link> -->
-      <ul v-for="testRecepie in testRecepies" :key="testRecepie._id">
+      <ul  v-for="testRecepie in testRecepies" :key="testRecepie._id">
         <li @click="showRecepie(testRecepie)">
           {{ testRecepie.title }}
         </li>
       </ul>
     </div>
     <div v-else>
-      No records found.
+      Inga recept hittade.
     </div>
-    <div>
+    <hr>
+    <div v-if="this.currentRecepie != null">
       <Recepie :currentRecepie="this.currentRecepie" />
     </div>
   </div>
@@ -61,7 +62,7 @@ export default {
       testRecepies: [],
       searchWord: null,
       recepies: [],
-      currentRecepie: Object
+      currentRecepie: null
     };
   },
   async asyncData(context) {
@@ -109,4 +110,11 @@ export default {
 };
 </script>
 
-<style></style>
+<style scoped>
+.search-list {
+  height: 100px;
+  width: 100%;
+  overflow: hidden;
+  overflow-y: scroll;
+}
+</style>

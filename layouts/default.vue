@@ -30,7 +30,7 @@
           </li>
         </ul>
       </nav>
-      <hr>
+      <hr />
     </div>
 
     <div>
@@ -47,7 +47,7 @@ export default {
 
 <style>
 @import url("https://fonts.googleapis.com/css2?family=Mansalva&display=swap");
-@import url('https://fonts.googleapis.com/css2?family=Satisfy&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Satisfy&display=swap");
 
 html {
   font-family: Satisfy;
@@ -84,6 +84,7 @@ body {
   background-size: 7em 7em, 5em 5em, 3em 3em, 1em 1em;
   background-color: #f5e9be;
   /* font: 10px/1.4 "Trebuchet MS", Verdana, sans-serif; */
+  
 }
 
 *,
@@ -93,32 +94,32 @@ body {
   margin: 0;
 }
 
-.button--green {
-  display: inline-block;
-  border-radius: 4px;
-  border: 1px solid #3b8070;
-  color: #3b8070;
-  text-decoration: none;
-  padding: 10px 30px;
+@media only screen and (max-width: 300px) {
+  body {
+    font-size: 16px;
+    padding: 10px;
+  }
+  li:hover {
+    cursor: pointer;
+  }
+  hr {
+    margin: 8px;
+    opacity: 50%;
+  }
 }
 
-.button--green:hover {
-  color: #fff;
-  background-color: #3b8070;
+@media only screen and (min-width: 301px) {
+  body {
+    font-size: 30px;
+  }
 }
 
-.button--grey {
-  display: inline-block;
-  border-radius: 4px;
-  border: 1px solid #35495e;
-  color: #35495e;
-  text-decoration: none;
-  padding: 10px 30px;
-  margin-left: 15px;
+@media only screen and (min-width: 500px) {
 }
 
-.button--grey:hover {
-  color: #fff;
-  background-color: #35495e;
+@media only screen and (min-width: 992px) {
+}
+
+@media only screen and (min-width: 1200px) {
 }
 </style>

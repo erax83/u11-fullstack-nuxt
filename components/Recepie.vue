@@ -1,9 +1,10 @@
 <template>
   <div>
     <h2>{{ currentRecepie.title }}</h2>
-    <br>
+    <h3>Ingredienser</h3>
     <p style="white-space: pre-line">{{ currentRecepie.ingrediences }}</p>
     <br>
+    <h3>Instruktioner</h3>
     <p style="white-space: pre-line">{{ currentRecepie.instructions }}</p>
     <br>
 
