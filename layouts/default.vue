@@ -2,10 +2,13 @@
   <div>
     <div>
       <h1>Receptcirkeln</h1>
+      <div v-if="$auth.loggedIn">
+        <p>Inloggad</p>
+      </div>
       <nav>
         <ul>
           <li>
-            <nuxt-link to="/">Home</nuxt-link>
+            <nuxt-link to="/">Hem</nuxt-link>
           </li>
           <li>
             <nuxt-link to="/recepie/allRecepies">Recept</nuxt-link>

@@ -1,9 +1,10 @@
 <template>
   <div>
-    <h1>Välkommen till Receptcirkeln!</h1>
-    <div v-if="$auth.loggedIn">
-      <p>Inloggad</p>
-    </div>
+    <h3>Välkommen till Receptcirkeln!</h3>
+    <p>
+      På Receptcirkeln kan du dela med dig av dina favoritrecept. Ta del av den
+      ständigt växande receptsamlingen som skapas av Receptcirkelns medlemmar.
+    </p>
   </div>
 </template>
 
@@ -13,5 +14,4 @@ export default {
 };
 </script>
 
-<style>
-</style>
+<style></style>

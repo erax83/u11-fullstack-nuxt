@@ -2,7 +2,7 @@
   <div>
     <h2>Recept</h2>
     <div>
-      <div v-if="recepies.length">
+      <div class="recepie-list" v-if="recepies.length">
         <!-- <nuxt-link
           class="list-group-item list-group-item-action"
           :to="'/articles/' + recepie._id"
@@ -24,9 +24,6 @@
       <div v-else>
         No records found.
       </div>
-    </div>
-    <div v-if="$auth.loggedIn">
-      <p>Inloggad</p>
     </div>
     <!-- <div v-if="$auth.loggedIn">
       <p>{{ $auth.user }}</p>
@@ -70,15 +67,17 @@ export default {
   async asyncData(context) {
     const { data } = await context.$axios.get("/api/recepies");
     // await addRecepies(data);
+    const reverseData = await data.reverse();
+    const latestData = await reverseData.slice(0, 9);
     return {
-      recepies: data
+      recepies: latestData
     };
   }
 };
 </script>
 
 <style scoped>
-.search-list {
+.recepie-list {
   height: 100px;
   width: 100%;
   overflow: hidden;

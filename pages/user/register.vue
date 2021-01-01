@@ -1,7 +1,7 @@
 <template>
   <div>
     <h2>Registrering</h2>
-
+    <p>Registrera dig för att bli medlem i Receptcirkeln.</p>
     <form action="" method="post" @submit.prevent="submitForm()">
       <div>
         <label for>Användarnamn</label>
@@ -16,11 +16,6 @@
         <input type="text" v-model="password" />
       </div>
       <input type="submit" value="Registrera" />
-
-      <div v-if="$auth.loggedIn">
-        <p>Inloggad</p>
-      </div>
-      <nuxt-link to="/">Avbryt</nuxt-link>
     </form>
   </div>
 </template>

@@ -1,9 +1,6 @@
 <template>
   <div>
     <h2>Sök recept</h2>
-    <div v-if="$auth.loggedIn">
-      <p>Inloggad</p>
-    </div>
     <input type="text" v-model="searchWord" v-on:input="search" />
     <!-- <div v-if="recepies.length"> -->
     <!-- <nuxt-link
@@ -25,7 +22,7 @@
       No records found.
     </div> -->
 
-    <div class="search-list" v-if="testRecepies.length">
+    <div class="search-list" v-if="testRecepies != null">
       <!-- <nuxt-link
           class="list-group-item list-group-item-action"
           :to="'/articles/' + recepie._id"
@@ -35,7 +32,8 @@
          {{recepie.title}}
           
         </nuxt-link> -->
-      <ul  v-for="testRecepie in testRecepies" :key="testRecepie._id">
+
+      <ul v-for="testRecepie in testRecepies" :key="testRecepie._id">
         <li @click="showRecepie(testRecepie)">
           {{ testRecepie.title }}
         </li>
@@ -44,7 +42,7 @@
     <div v-else>
       Inga recept hittade.
     </div>
-    <hr>
+    <hr />
     <div v-if="this.currentRecepie != null">
       <Recepie :currentRecepie="this.currentRecepie" />
     </div>
@@ -59,7 +57,7 @@ export default {
   components: { Recepie },
   data() {
     return {
-      testRecepies: [],
+      testRecepies: null,
       searchWord: null,
       recepies: [],
       currentRecepie: null

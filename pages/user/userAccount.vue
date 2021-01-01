@@ -1,7 +1,8 @@
 <template>
   <div>
-    <h2>Min Sida</h2>
+    <h2>Sida</h2>
     <h4>Mina recept:</h4>
+    <h4>{{ currentAuthor.author }}</h4>
     <div class="recepie-list" v-if="recepies.length">
       <!-- <nuxt-link
           class="list-group-item list-group-item-action"
@@ -16,11 +17,6 @@
         <li @click="showRecepie(recepie)">
           {{ recepie.title }}
         </li>
-        <div v-if="$auth.user.user_name == recepie.author">
-          <button v-on:click="deleteRecepie(recepie._id)">
-            Radera Recept
-          </button>
-        </div>
 
         <!-- <li>
           <nuxt-link to="/recepie/oneRecepie" :recepie="recepie" :key="recepie._id">One Recepie</nuxt-link>
@@ -28,12 +24,12 @@
       </ul>
     </div>
     <div v-else>
-      No records found.
+      Inga recept hittade.
     </div>
     <hr />
-    <div v-if="this.currentRecepie != null">
+    <!-- <div v-if="this.currentRecepie != null">
       <Recepie :currentRecepie="this.currentRecepie" />
-    </div>
+    </div> -->
   </div>
 </template>
 
@@ -49,6 +45,11 @@ export default {
       currentRecepie: null
     };
   },
+  props: {
+    currentAuthor: {
+        author: String
+    }
+  },
   async asyncData(context) {
     // auth: "guest";
     const { data } = await context.$axios.get("/api/recepies");
@@ -62,12 +63,12 @@ export default {
     var oldArray = this.allRecepies;
     var newArray = [];
     for (var i = 0; i < oldArray.length; i++) {
-      if (oldArray[i].author == this.$auth.user.user_name) {
+      if (oldArray[i].author == this.currentAuthor.author) {
         newArray.push(oldArray[i]);
       }
     }
+    console.log('Current author: ' + this.currentAuthor.author);
     console.log("Mina recept: " + newArray);
-    console.log("user: " + this.$auth.user.user_name);
     console.log("Alla recept: " + this.allRecepies);
 
     this.recepies = newArray;
@@ -75,27 +76,6 @@ export default {
   methods: {
     showRecepie: function(recepie) {
       this.currentRecepie = recepie;
-    },
-    deleteRecepie(recepieId) {
-      auth: "guest";
-      if (confirm("Är du säker?") === true) {
-        this.$axios
-          .delete("/api/recepies/" + recepieId)
-          .then(response => {
-            if (response.data._id) {
-              this.$router.push({
-                name: "recepies",
-                params: { deleted: "yes" }
-              });
-            }
-            alert("Receptet har raderats.");
-            window.location.reload(true);
-          })
-          .catch(error => {
-            console.log("delete error " + recepieId);
-            console.log(error);
-          });
-      }
     }
   }
 };

@@ -1,17 +1,17 @@
 <template>
   <div>
-    <h1>Lägg till recept</h1>
+    <h2>Lägg till recept</h2>
+    <br />
     <form action="" method="post" @submit.prevent="submitForm()">
-      <label for="title">Recept Titel</label>
-      <br>
+      <label for="title"><h4>Recept Titel</h4></label>
       <input id="title" type="text" v-model="title" />
-      <br>
-      <label for="ingrediences">Ingredienser</label>
+      <br />
+      <br />
+      <label for="ingrediences"><h4>Ingredienser</h4></label>
       <p>Använd ett mått eller antal samt ingrediens per rad.</p>
       <p>Exempel:</p>
       <p>100 g smör</p>
       <p>1 dl mjöl</p>
-      <br>
       <textarea
         id="ingrediences"
         type="text"
@@ -19,14 +19,13 @@
         cols="30"
         v-model="ingrediences"
       />
-      <br>
-      <br>
-      <label for="instructions">Instruktioner</label>
-      <p>Använd nummer och ny rad för varge nytt moment.</p>
+      <br />
+      <br />
+      <label for="instructions"><h4>Instruktioner</h4></label>
+      <p>Använd nummer, punkt och ny rad för varge nytt moment.</p>
       <p>Exempel:</p>
       <p>1. Smält smöret</p>
       <p>2. Blanda mjöl, socker och salt i en bunke.</p>
-      <br>
       <textarea
         id="instructions"
         type="text"
@@ -34,13 +33,8 @@
         cols="30"
         v-model="instructions"
       />
-      <br>
+      <br />
       <input type="submit" value="Registrera" />
-
-      <div v-if="$auth.loggedIn">
-        <p>Inloggad</p>
-      </div>
-      <nuxt-link to="/">Avbryt</nuxt-link>
     </form>
   </div>
 </template>
