@@ -3,21 +3,9 @@
     <h2>Recept</h2>
     <div>
       <div class="recepie-list" v-if="recepies.length">
-        <!-- <nuxt-link
-          class="list-group-item list-group-item-action"
-          :to="'/articles/' + recepie._id"
-          v-for="recepie in recepies"
-          :key="recepie._id"
-        >
-         {{recepie.title}}
-          
-        </nuxt-link> -->
         <ul v-for="recepie in recepies" :key="recepie._id">
           <li @click="showRecepie(recepie)">
             {{ recepie.title }}
-            
-            <!-- <nuxt-link to="/recepie/oneRecepie">{{recepie.title}}</nuxt-link> -->
-
           </li>
         </ul>
       </div>
@@ -25,9 +13,6 @@
         No records found.
       </div>
     </div>
-    <!-- <div v-if="$auth.loggedIn">
-      <p>{{ $auth.user }}</p>
-    </div> -->
     <hr>
     <div v-if="this.currentRecepie != null">
       <Recepie :currentRecepie="this.currentRecepie"/>

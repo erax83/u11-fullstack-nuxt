@@ -1,7 +1,7 @@
 <template>
   <div>
     <h2>Sida</h2>
-    <h4>Mina recept:</h4>
+    <h3>Mina recept:</h3>
     <h4>{{ currentAuthor.author }}</h4>
     <div class="recepie-list" v-if="recepies.length">
       <!-- <nuxt-link

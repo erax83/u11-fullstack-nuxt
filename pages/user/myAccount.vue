@@ -1,7 +1,7 @@
 <template>
   <div>
     <h2>Min Sida</h2>
-    <h4>Mina recept:</h4>
+    <h3>Mina recept:</h3>
     <div class="recepie-list" v-if="recepies.length">
       <!-- <nuxt-link
           class="list-group-item list-group-item-action"

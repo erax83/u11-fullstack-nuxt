@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h2>{{ currentRecepie.title }}</h2>
+    <h3>{{ currentRecepie.title }}</h3>
     <h4>Ingredienser</h4>
     <p style="white-space: pre-line">{{ currentRecepie.ingrediences }}</p>
     <br />
