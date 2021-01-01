@@ -10,9 +10,9 @@
           <li>
             <nuxt-link to="/">Hem</nuxt-link>
           </li>
-          <li>
+          <!-- <li>
             <nuxt-link to="/recepie/allRecepies">Recept</nuxt-link>
-          </li>
+          </li> -->
           <li>
             <nuxt-link to="/recepie/search">Sök</nuxt-link>
           </li>
@@ -109,6 +109,12 @@ body {
     margin: 8px;
     opacity: 50%;
   }
+  .recepie-list {
+  height: 100px;
+  width: 100%;
+  overflow: hidden;
+  overflow-y: scroll;
+}
 }
 
 @media only screen and (min-width: 301px) {

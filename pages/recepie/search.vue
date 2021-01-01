@@ -22,7 +22,7 @@
       No records found.
     </div> -->
 
-    <div class="search-list" v-if="testRecepies != null">
+    <div class="recepie-list" v-if="testRecepies != null && this.searchWord != ''">
       <!-- <nuxt-link
           class="list-group-item list-group-item-action"
           :to="'/articles/' + recepie._id"
@@ -109,10 +109,5 @@ export default {
 </script>
 
 <style scoped>
-.search-list {
-  height: 100px;
-  width: 100%;
-  overflow: hidden;
-  overflow-y: scroll;
-}
+
 </style>

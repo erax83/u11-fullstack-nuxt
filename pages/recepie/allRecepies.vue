@@ -62,10 +62,4 @@ export default {
 </script>
 
 <style scoped>
-.recepie-list {
-  height: 100px;
-  width: 100%;
-  overflow: hidden;
-  overflow-y: scroll;
-}
 </style>
