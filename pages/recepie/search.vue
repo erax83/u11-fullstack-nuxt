@@ -22,7 +22,7 @@
       No records found.
     </div> -->
 
-    <div class="recepie-list" v-if="testRecepies != null && this.searchWord != ''">
+    <div class="recepie-list" v-if="testRecepies != null && this.searchWord != '' && this.searchWord != ' '">
       <!-- <nuxt-link
           class="list-group-item list-group-item-action"
           :to="'/articles/' + recepie._id"
@@ -39,9 +39,9 @@
         </li>
       </ul>
     </div>
-    <div v-else>
+    <!-- <div v-else>
       Inga recept hittade.
-    </div>
+    </div> -->
     <hr />
     <div v-if="this.currentRecepie != null">
       <Recepie :currentRecepie="this.currentRecepie" />
@@ -83,7 +83,7 @@ export default {
           newArray.push(oldArray[i]);
         }
       }
-      this.testRecepies = newArray;
+      this.testRecepies = newArray.slice(0, 9);
     },
     showRecepie: function(recepie) {
       this.currentRecepie = recepie;
