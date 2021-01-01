@@ -3,7 +3,7 @@
     <div>
       <h2>Välkommen till Receptcirkeln!</h2>
       <p>
-        På Receptcirkeln kan du dela med dig av dina favoritrecept. Ta del av
+        I Receptcirkeln kan du dela med dig av dina favoritrecept och samtidigt ta del av
         den ständigt växande receptsamlingen som skapas av Receptcirkelns
         medlemmar.
       </p>

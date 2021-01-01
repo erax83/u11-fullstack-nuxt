@@ -1,6 +1,7 @@
 <template>
   <div>
     <h3>{{ currentRecepie.title }}</h3>
+    <br>
     <h4>Ingredienser</h4>
     <p style="white-space: pre-line">{{ currentRecepie.ingrediences }}</p>
     <br />
@@ -8,7 +9,7 @@
     <p style="white-space: pre-line">{{ currentRecepie.instructions }}</p>
     <br />
     <h4>Skapat av</h4>
-    <nuxt-link to="/user/userAccount" :currentAuthor="this.currentRecepie">{{ currentRecepie.author }}</nuxt-link>
+    <nuxt-link :to="'/user/userAccount/'" >{{ currentRecepie.author }}</nuxt-link>
     <br />
   </div>
 </template>

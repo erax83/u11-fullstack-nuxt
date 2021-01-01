@@ -2,7 +2,7 @@
   <div>
     <h2>Sida</h2>
     <h3>Mina recept:</h3>
-    <h4>{{ currentAuthor.author }}</h4>
+    <!-- <h4>{{ currentAuthor.author }}</h4> -->
     <div class="recepie-list" v-if="recepies.length">
       <!-- <nuxt-link
           class="list-group-item list-group-item-action"
@@ -37,7 +37,7 @@
 import Recepie from "~/components/Recepie.vue";
 export default {
   middleware: "auth",
-  components: { Recepie },
+//   components: { Recepie },
   data() {
     return {
       allRecepies: Array,
@@ -45,11 +45,11 @@ export default {
       currentRecepie: null
     };
   },
-  props: {
-    currentAuthor: {
-        author: String
-    }
-  },
+//   props: {
+//     currentAuthor: {
+//         author: String
+//     }
+//   },
   async asyncData(context) {
     // auth: "guest";
     const { data } = await context.$axios.get("/api/recepies");

@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <div>
+  <div class="wrapper">
+    <header>
       <h1>Receptcirkeln</h1>
       <div v-if="$auth.loggedIn">
         <p>Inloggad</p>
@@ -34,11 +34,11 @@
         </ul>
       </nav>
       <hr />
-    </div>
+    </header>
 
-    <div>
+    <main>
       <nuxt />
-    </div>
+    </main>
   </div>
 </template>
 
@@ -56,6 +56,7 @@ html {
   font-family: Satisfy;
   font-size: 16px;
   word-spacing: 1px;
+  line-height: 1.6;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
   -moz-osx-font-smoothing: grayscale;
@@ -87,7 +88,6 @@ body {
   background-size: 7em 7em, 5em 5em, 3em 3em, 1em 1em;
   background-color: #f5e9be;
   /* font: 10px/1.4 "Trebuchet MS", Verdana, sans-serif; */
-  
 }
 
 *,
@@ -97,29 +97,84 @@ body {
   margin: 0;
 }
 
+li:hover {
+  cursor: pointer;
+}
+
+#ingrediences, #instructions {
+  margin: 10px;
+  width: 90%;
+}
+
 @media only screen and (max-width: 300px) {
+  .wrapper {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
+    /* grid-gap: 10px; */
+  }
+
+  header {
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 1;
+    grid-row-end: 2;
+  }
+
+  main {
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 2;
+    grid-row-end: 3;
+  }
+
   body {
     font-size: 16px;
-    padding: 10px;
+    padding: 15px;
   }
-  li:hover {
-    cursor: pointer;
-  }
+
   hr {
     margin: 8px;
     opacity: 50%;
   }
   .recepie-list {
-  height: 100px;
-  width: 100%;
-  overflow: hidden;
-  overflow-y: scroll;
-}
+    height: 100px;
+    width: 100%;
+    overflow: hidden;
+    overflow-y: scroll;
+  }
 }
 
 @media only screen and (min-width: 301px) {
+  .container {
+    display: grid;
+    grid-template-areas:
+      "head head"
+      "main main";
+  }
+
+  .container > header {
+    grid-area: head;
+  }
+
+  .container > main {
+    grid-area: main;
+  }
+
   body {
-    font-size: 30px;
+    font-size: 16px;
+    padding: 10px;
+  }
+
+  hr {
+    margin: 8px;
+    opacity: 50%;
+  }
+  .recepie-list {
+    height: 100px;
+    width: 100%;
+    overflow: hidden;
+    overflow-y: scroll;
   }
 }
 
