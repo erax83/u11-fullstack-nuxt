@@ -1,13 +1,15 @@
 <template>
   <div>
-    <h2>Inloggning</h2>
-
+    <div v-if="$auth.loggedIn">
+      <p>Du är nu inloggad.</p>
+    </div>
     <form
       v-if="!$auth.loggedIn"
       action=""
       method="post"
       @submit.prevent="submitForm()"
     >
+      <h2>Inloggning</h2>
       <div>
         <label for="">Email</label>
         <input
@@ -36,7 +38,6 @@
 
       <input v-if="!$auth.loggedIn" type="submit" value="Logga in" />
     </form>
-    
   </div>
 </template>
 

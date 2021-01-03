@@ -8,8 +8,12 @@
       <br />
       <br />
       <label for="ingrediences"><h4>Ingredienser</h4></label>
-      <p>Använd ett mått eller antal samt ingrediens per rad.</p>
+      <p>
+        Ange först antal portioner alternativt mängd. Använd därefter ett mått
+        eller antal samt ingrediens per rad.
+      </p>
       <p>Exempel:</p>
+      <p>2 portioner <em>eller</em> 40 st</p>
       <p>100 g smör</p>
       <p>1 dl mjöl</p>
       <textarea
@@ -113,5 +117,7 @@ export default {
 </script>
 
 <style scoped>
-
+form {
+  max-width: 600px;
+}
 </style>

@@ -1,32 +1,31 @@
 <template>
-  <div>
-    <div>
+  <div class="box-wrapper">
+    <div class="box-one">
       <h2>Välkommen till Receptcirkeln!</h2>
       <p>
-        I Receptcirkeln kan du dela med dig av dina favoritrecept och samtidigt ta del av
-        den ständigt växande receptsamlingen som skapas av Receptcirkelns
-        medlemmar.
+        Här på Receptcirkeln kan du dela med dig av dina favoritrecept och
+        samtidigt ta del av den ständigt växande receptsamlingen som skapas av
+        Receptcirkelns medlemmar.
       </p>
     </div>
-    <hr>
-    <div>
+
+    <div class="box-two">
       <h2>Nya Recept</h2>
-      <div>
-        <div class="recepie-list" v-if="recepies.length">
-          <ul v-for="recepie in recepies" :key="recepie._id">
-            <li @click="showRecepie(recepie)">
-              {{ recepie.title }}
-            </li>
-          </ul>
-        </div>
-        <div v-else>
-          No records found.
-        </div>
+
+      <div class="recepie-list" v-if="recepies.length">
+        <ul v-for="recepie in recepies" :key="recepie._id">
+          <li @click="showRecepie(recepie)">
+            {{ capitalize_Words(recepie.title) }}
+          </li>
+        </ul>
       </div>
-      <hr />
-      <div v-if="this.currentRecepie != null">
-        <Recepie :currentRecepie="this.currentRecepie" />
+      <div v-else>
+        No records found.
       </div>
+    </div>
+
+    <div class="box-three" v-if="this.currentRecepie != null">
+      <Recepie :currentRecepie="this.currentRecepie" />
     </div>
   </div>
 </template>
@@ -49,6 +48,11 @@ export default {
     };
   },
   methods: {
+    capitalize_Words(str) {
+      return str.replace(/\w\S*/g, function(txt) {
+        return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+      });
+    },
     toggle: function(event) {
       event.target.classList.toggle("is-open");
     },
@@ -74,4 +78,120 @@ export default {
 
 <style scoped>
 
+@media only screen and (max-width: 300px) {
+  .box-wrapper {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    /* grid-gap: 10px; */
+  }
+}
+
+@media only screen and (min-width: 301px) {
+  .box-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto;
+    /* grid-gap: 10px; */
+  }
+
+  .box-one {
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start: 1;
+  }
+
+  .box-two {
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 2;
+  }
+
+  .box-three {
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 2;
+  }
+}
+
+@media only screen and (min-width: 500px) {
+  .box-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: auto auto;
+    /* grid-gap: 10px; */
+  }
+
+  .box-one {
+    grid-column-start: 1;
+    grid-column-end: 6;
+    grid-row-start: 1;
+  }
+
+  .box-two {
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start: 2;
+  }
+
+  .box-three {
+    grid-column-start: 3;
+    grid-column-end: 6;
+    grid-row-start: 2;
+  }
+}
+
+@media only screen and (min-width: 900px) {
+  .box-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: auto auto;
+    /* grid-gap: 10px; */
+  }
+
+  .box-one {
+    grid-column-start: 1;
+    grid-column-end: 6;
+    grid-row-start: 1;
+  }
+
+  .box-two {
+    grid-column-start: 1;
+    grid-column-end: 5;
+    grid-row-start: 2;
+  }
+
+  .box-three {
+    grid-column-start: 5;
+    grid-column-end: 13;
+    grid-row-start: 2;
+  }
+}
+
+@media only screen and (min-width: 1400px) {
+  .box-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: auto auto;
+    /* grid-gap: 10px; */
+  }
+
+  .box-one {
+    grid-column-start: 1;
+    grid-column-end: 6;
+    grid-row-start: 1;
+  }
+
+  .box-two {
+    grid-column-start: 1;
+    grid-column-end: 4;
+    grid-row-start: 2;
+  }
+
+  .box-three {
+    grid-column-start: 4;
+    grid-column-end: 13;
+    grid-row-start: 2;
+  }
+}
 </style>
