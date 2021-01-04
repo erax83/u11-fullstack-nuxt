@@ -38,7 +38,7 @@
         v-model="instructions"
       />
       <br />
-      <input type="submit" value="Registrera" />
+      <input id="submit-button" type="submit" value="Registrera" />
     </form>
   </div>
 </template>
@@ -119,5 +119,21 @@ export default {
 <style scoped>
 form {
   max-width: 600px;
+}
+
+#submit-button {
+  background-color: steelblue; /* Green */
+  border: none;
+  color: white;
+  padding: 5px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  border-radius: 2px;
+}
+
+#submit-button:hover {
+  cursor: pointer;
 }
 </style>

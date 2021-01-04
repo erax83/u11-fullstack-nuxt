@@ -14,13 +14,13 @@
       <p style="white-space: pre-line">{{ currentRecepie.instructions }}</p>
       <br />
     </div>
-    <div class="recepie-box-four">
+    <!-- <div class="recepie-box-four">
       <h4>Skapat av</h4>
       <nuxt-link :to="'/user/userAccount/'">{{
         currentRecepie.author
       }}</nuxt-link>
       <br />
-    </div>
+    </div> -->
   </div>
 </template>
 
