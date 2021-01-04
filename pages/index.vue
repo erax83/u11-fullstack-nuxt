@@ -7,6 +7,7 @@
         samtidigt ta del av den ständigt växande receptsamlingen som skapas av
         Receptcirkelns medlemmar.
       </p>
+      <br>
     </div>
 
     <div class="box-two">
@@ -114,7 +115,7 @@ export default {
   }
 }
 
-@media only screen and (min-width: 500px) {
+@media only screen and (min-width: 600px) {
   .box-wrapper {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
@@ -151,7 +152,7 @@ export default {
 
   .box-one {
     grid-column-start: 1;
-    grid-column-end: 6;
+    grid-column-end: 7;
     grid-row-start: 1;
   }
 
@@ -163,7 +164,7 @@ export default {
 
   .box-three {
     grid-column-start: 5;
-    grid-column-end: 13;
+    grid-column-end: 12;
     grid-row-start: 2;
   }
 }
@@ -190,7 +191,7 @@ export default {
 
   .box-three {
     grid-column-start: 4;
-    grid-column-end: 13;
+    grid-column-end: 12;
     grid-row-start: 2;
   }
 }

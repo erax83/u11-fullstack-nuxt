@@ -11,7 +11,7 @@
     >
       <h2>Inloggning</h2>
       <div>
-        <label for="">Email</label>
+        <label for="">E-post</label>
         <input
           type="text"
           class="form-control"
@@ -24,7 +24,7 @@
       </div>
 
       <div class="form-group">
-        <label for="">Password</label>
+        <label for="">Lösenord</label>
         <input
           type="password"
           class="form-control"

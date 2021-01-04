@@ -123,9 +123,11 @@ main {
 }
 
 hr {
-  color: black;
+  border-top: 1px rgb(44, 22, 7) ;
+  border-bottom: 1px solid rgb(44, 22, 7) ;
+  /* color: black; */
   margin: 8px;
-  opacity: 50%;
+  opacity: 30%;
 }
 
 li {
@@ -137,7 +139,16 @@ li:hover {
 }
 
 nav li {
-  margin-right: 5px;
+  margin-right: 10px;
+}
+
+ul li::hover {
+  content: "\2022";  /* Add content: \2022 is the CSS Code/unicode for a bullet */
+  color: red; /* Change the color */
+  font-weight: bold; /* If you want it to be bold */
+  display: inline-block; /* Needed to add space between the bullet and the text */
+  width: 1em; /* Also needed for space (tweak if needed) */
+  margin-left: -1em; /* Also needed for space (tweak if needed) */
 }
 
 .menu-link {
@@ -187,7 +198,7 @@ nuxt-link {
   }
 
   .recepie-list {
-    height: 100px;
+    height: 150px;
     width: 100%;
     overflow: hidden;
     overflow-y: scroll;
@@ -197,6 +208,7 @@ nuxt-link {
 @media only screen and (min-width: 301px) {
   body {
     font-size: 16px;
+    padding: 10px;
   }
 
   nav li {
@@ -211,10 +223,18 @@ nuxt-link {
   }
 }
 
-@media only screen and (min-width: 400px) {
+@media only screen and (min-width: 450px) {
   body {
     font-size: 18px;
     padding: 10px;
+  }
+
+  header {
+    padding-left: 10px;
+  }
+
+  main {
+    padding-left: 20px;
   }
 
   nav li {
@@ -233,6 +253,14 @@ nuxt-link {
   body {
     font-size: 19px;
     padding: 10px;
+  }
+
+  header {
+    padding-left: 15px;
+  }
+
+  main {
+    padding-left: 25px;
   }
 
   nav li {

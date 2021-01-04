@@ -1,8 +1,9 @@
 <template>
   <div class="box-wrapper">
-    <div class="box-one">
+    <div class="box box-one">
       <h2>Sök recept</h2>
       <input type="text" v-model="searchWord" v-on:input="search" />
+      <br>
       <!-- <div v-if="recepies.length"> -->
       <!-- <nuxt-link
           class="list-group-item list-group-item-action"
@@ -25,7 +26,7 @@
     </div>
 
     <div
-      class="recepie-list box-two"
+      class="recepie-list box box-two"
       v-if="
         testRecepies != null && this.searchWord != '' && this.searchWord != ' '
       "
@@ -49,7 +50,7 @@
     <!-- <div v-else>
       Inga recept hittade.
     </div> -->
-    <div class="box-three" v-if="this.currentRecepie != null">
+    <div class="box box-three" v-if="this.currentRecepie != null">
       <Recepie :currentRecepie="this.currentRecepie" />
     </div>
   </div>
@@ -192,7 +193,7 @@ export default {
   }
 }
 
-@media only screen and (min-width: 500px) {
+@media only screen and (min-width: 600px) {
   .box-wrapper {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
@@ -242,7 +243,7 @@ export default {
 
   .box-three {
     grid-column-start: 5;
-    grid-column-end: 13;
+    grid-column-end: 12;
     grid-row-start: 2;
   }
 }
@@ -269,7 +270,7 @@ export default {
 
   .box-three {
     grid-column-start: 4;
-    grid-column-end: 13;
+    grid-column-end: 12;
     grid-row-start: 2;
   }
 }

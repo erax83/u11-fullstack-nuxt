@@ -1,7 +1,7 @@
 <template>
   <div class="box-wrapper">
-    <div class="box-one"><h2>Min Sida</h2></div>
-    <div class="box-two">
+    <div class="box box-one"><h2>Min Sida</h2></div>
+    <div class="box box-two">
       <h3>Mina recept:</h3>
       <div class="recepie-list" v-if="recepies.length">
         <!-- <nuxt-link
@@ -33,7 +33,7 @@
       </div>
     </div>
 
-    <div class="box-three" v-if="this.currentRecepie != null">
+    <div class="box box-three" v-if="this.currentRecepie != null">
       <Recepie :currentRecepie="this.currentRecepie" />
     </div>
   </div>
@@ -145,7 +145,7 @@ export default {
   }
 }
 
-@media only screen and (min-width: 500px) {
+@media only screen and (min-width: 600px) {
   .box-wrapper {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
@@ -194,7 +194,7 @@ export default {
 
   .box-three {
     grid-column-start: 5;
-    grid-column-end: 13;
+    grid-column-end: 12;
     grid-row-start: 2;
   }
 }
@@ -221,7 +221,7 @@ export default {
 
   .box-three {
     grid-column-start: 4;
-    grid-column-end: 13;
+    grid-column-end: 12;
     grid-row-start: 2;
   }
 }
