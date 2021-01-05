@@ -133,5 +133,6 @@ form {
 
 #submit-button:hover {
   cursor: pointer;
+  color: rgb(213, 221, 231);
 }
 </style>

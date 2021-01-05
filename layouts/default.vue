@@ -136,6 +136,7 @@ li {
 
 li:hover {
   cursor: pointer;
+  color: rgb(46, 106, 155);
 }
 
 nav li {
@@ -154,6 +155,13 @@ ul li::hover {
 .menu-link {
   text-decoration: none;
   color: rgb(78, 39, 11);
+  padding: 5px;
+  border-radius: 10px;
+}
+
+.menu-link:hover {
+  color: salmon;
+  background: rgb(78, 39, 11);
 }
 
 #logg-symbol {
@@ -175,6 +183,7 @@ button {
 
 button:hover {
   cursor: pointer;
+  color: pink;
 }
 
 #ingrediences,
@@ -216,14 +225,14 @@ nuxt-link {
   }
 
   .recepie-list {
-    /* height: 100px; */
+    height: 300px;
     width: 100%;
     overflow: hidden;
     overflow-y: scroll;
   }
 }
 
-@media only screen and (min-width: 450px) {
+@media only screen and (min-width: 485px) {
   body {
     font-size: 18px;
     padding: 10px;
@@ -242,7 +251,7 @@ nuxt-link {
   }
 
   .recepie-list {
-    /* height: 100px; */
+    height: 400px;
     width: 100%;
     overflow: hidden;
     overflow-y: scroll;
@@ -268,7 +277,7 @@ nuxt-link {
   }
 
   .recepie-list {
-    /* height: 100px; */
+    height: 600px;
     width: 100%;
     overflow: hidden;
     overflow-y: scroll;
