@@ -3,7 +3,7 @@
     <div class="box box-one">
       <h2>Sök recept</h2>
       <input type="text" v-model="searchWord" v-on:input="search" />
-      <br>
+      <br />
       <!-- <div v-if="recepies.length"> -->
       <!-- <nuxt-link
           class="list-group-item list-group-item-action"
@@ -121,57 +121,38 @@ export default {
 </script>
 
 <style scoped>
-/* .box-wrapper {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: auto auto;
-}
 
-.box-one {
-  grid-column-start: 1;
-  grid-column-end: 2;
-  grid-row-start: 1;
-}
-
-.box-two {
-  grid-column-start: 2;
-  grid-column-end: 3;
-  grid-row-start: 2;
-} */
+  .box-wrapper {
+    display: grid;
+    grid-gap: 20px;
+  }
 
 @media only screen and (max-width: 300px) {
   .box-wrapper {
-    display: grid;
     grid-template-columns: auto;
     grid-template-rows: auto;
-    /* grid-gap: 10px; */
   }
 
   .box-one {
     grid-column-start: 1;
     grid-column-end: 2;
-    /* grid-row-start: 1; */
   }
 
   .box-two {
     grid-column-start: 1;
     grid-column-end: 2;
-    /* grid-row-start: 2; */
   }
 
   .box-three {
     grid-column-start: 1;
     grid-column-end: 2;
-    /* grid-row-start: 2; */
   }
 }
 
 @media only screen and (min-width: 301px) {
   .box-wrapper {
-    display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: auto auto;
-    /* grid-gap: 10px; */
   }
 
   .box-one {
@@ -195,17 +176,14 @@ export default {
 
 @media only screen and (min-width: 600px) {
   .box-wrapper {
-    display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
     grid-template-rows: auto auto;
-    grid-gap: 10px;
   }
 
   .box-one {
     grid-column-start: 1;
     grid-column-end: 6;
     grid-row-start: 1;
-    grid-gap: 10px;
   }
 
   .box-two {
@@ -223,10 +201,8 @@ export default {
 
 @media only screen and (min-width: 900px) {
   .box-wrapper {
-    display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
     grid-template-rows: auto auto;
-    /* grid-gap: 10px; */
   }
 
   .box-one {
@@ -250,10 +226,8 @@ export default {
 
 @media only screen and (min-width: 1200px) {
   .box-wrapper {
-    display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
     grid-template-rows: auto auto;
-    /* grid-gap: 10px; */
   }
 
   .box-one {

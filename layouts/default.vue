@@ -234,7 +234,7 @@ nuxt-link {
   }
 
   main {
-    padding-left: 20px;
+    padding: 5px 20px;
   }
 
   nav li {
@@ -260,7 +260,7 @@ nuxt-link {
   }
 
   main {
-    padding-left: 25px;
+    padding: 5px 25px;
   }
 
   nav li {

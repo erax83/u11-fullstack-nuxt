@@ -79,21 +79,22 @@ export default {
 
 <style scoped>
 
+.box-wrapper {
+  display: grid;
+  grid-gap: 20px;
+}
+
 @media only screen and (max-width: 300px) {
   .box-wrapper {
-    display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: auto;
-    /* grid-gap: 10px; */
   }
 }
 
 @media only screen and (min-width: 301px) {
   .box-wrapper {
-    display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: auto auto;
-    /* grid-gap: 10px; */
   }
 
   .box-one {
@@ -117,10 +118,8 @@ export default {
 
 @media only screen and (min-width: 600px) {
   .box-wrapper {
-    display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
     grid-template-rows: auto auto;
-    /* grid-gap: 10px; */
   }
 
   .box-one {
@@ -144,10 +143,8 @@ export default {
 
 @media only screen and (min-width: 900px) {
   .box-wrapper {
-    display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
     grid-template-rows: auto auto;
-    /* grid-gap: 10px; */
   }
 
   .box-one {
@@ -171,7 +168,6 @@ export default {
 
 @media only screen and (min-width: 1400px) {
   .box-wrapper {
-    display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
     grid-template-rows: auto auto;
     /* grid-gap: 10px; */
