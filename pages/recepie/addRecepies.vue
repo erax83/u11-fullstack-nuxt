@@ -45,7 +45,6 @@
 export default {
   middleware: "auth",
   data() {
-    // auth: "guest";
     return {
       errors: null,
       title: null,
@@ -87,28 +86,6 @@ export default {
       const userId = this.$auth.user._id;
       console.log("Auth id: " + this.$auth.user.user_name);
       console.log("RecepieId: " + this.recepieId);
-
-      // this.$axios
-      //   .put("/api/users/update" + this.$route.params.id, {
-      //     $push: {
-      //       recepieId: this.recepieId
-      //     }
-
-      //   })
-      //   .then(response => {
-      //     console.log("put then: ");
-      //     console.log(response);
-      //     if (response.data._id) {
-      //       this.$router.push({ name: "users", params: { created: "yes" } });
-      //     }
-      //   })
-      //   .catch(error => {
-      //     console.log("put error: ");
-      //     console.log(error);
-      //     if (error.response.data.errors) {
-      //       this.errors = error.response.data.errors;
-      //     }
-      //   });
     }
   }
 };

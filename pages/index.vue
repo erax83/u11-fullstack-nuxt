@@ -7,7 +7,7 @@
         samtidigt ta del av den ständigt växande receptsamlingen som skapas av
         Receptcirkelns medlemmar.
       </p>
-      <br>
+      <br />
     </div>
 
     <div class="box-two">
@@ -61,9 +61,6 @@ export default {
       this.currentRecepie = recepie;
       console.log(this.currentRecepie);
     }
-    // addRecepies: function(data) {
-    //   this.$store.commit("changeRecepies", data);
-    // }
   },
   async asyncData(context) {
     const { data } = await context.$axios.get("/api/recepies");
@@ -78,7 +75,6 @@ export default {
 </script>
 
 <style scoped>
-
 .box-wrapper {
   display: grid;
   grid-gap: 20px;
@@ -170,7 +166,6 @@ export default {
   .box-wrapper {
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
     grid-template-rows: auto auto;
-    /* grid-gap: 10px; */
   }
 
   .box-one {

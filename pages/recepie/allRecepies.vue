@@ -13,9 +13,9 @@
         No records found.
       </div>
     </div>
-    <hr>
+    <hr />
     <div v-if="this.currentRecepie != null">
-      <Recepie :currentRecepie="this.currentRecepie"/>
+      <Recepie :currentRecepie="this.currentRecepie" />
     </div>
   </div>
 </template>
@@ -45,13 +45,9 @@ export default {
       this.currentRecepie = recepie;
       console.log(this.currentRecepie);
     }
-    // addRecepies: function(data) {
-    //   this.$store.commit("changeRecepies", data);
-    // }
   },
   async asyncData(context) {
     const { data } = await context.$axios.get("/api/recepies");
-    // await addRecepies(data);
     const reverseData = await data.reverse();
     const latestData = await reverseData.slice(0, 9);
     return {
@@ -61,5 +57,4 @@ export default {
 };
 </script>
 
-<style scoped>
-</style>
+<style scoped></style>

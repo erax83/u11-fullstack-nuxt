@@ -4,25 +4,6 @@
       <h2>Sök recept</h2>
       <input type="text" v-model="searchWord" v-on:input="search" />
       <br />
-      <!-- <div v-if="recepies.length"> -->
-      <!-- <nuxt-link
-          class="list-group-item list-group-item-action"
-          :to="'/articles/' + recepie._id"
-          v-for="recepie in recepies"
-          :key="recepie._id"
-        >
-         {{recepie.title}}
-          
-        </nuxt-link> -->
-      <!-- <ul v-for="recepie in recepies" :key="recepie._id">
-        <li>
-          {{ recepie.title }}
-        </li>
-      </ul>
-    </div>
-    <div v-else>
-      No records found.
-    </div> -->
     </div>
 
     <div
@@ -31,25 +12,12 @@
         testRecepies != null && this.searchWord != '' && this.searchWord != ' '
       "
     >
-      <!-- <nuxt-link
-          class="list-group-item list-group-item-action"
-          :to="'/articles/' + recepie._id"
-          v-for="recepie in recepies"
-          :key="recepie._id"
-        >
-         {{recepie.title}}
-          
-        </nuxt-link> -->
-
       <ul v-for="testRecepie in testRecepies" :key="testRecepie._id">
         <li @click="showRecepie(testRecepie)">
           {{ capitalize_Words(testRecepie.title) }}
         </li>
       </ul>
     </div>
-    <!-- <div v-else>
-      Inga recept hittade.
-    </div> -->
     <div class="box box-three" v-if="this.currentRecepie != null">
       <Recepie :currentRecepie="this.currentRecepie" />
     </div>
@@ -102,30 +70,14 @@ export default {
       console.log(this.currentRecepie);
     }
   }
-
-  // async asyncData(context) {
-  //   const { data } = await context.$axios.get("/api/recepies");
-  //   var allRecepies = [];
-  //   var searchArray = [];
-  //   allRecepies = data;
-  //   for (var i = 0; i < allRecepies.length; i++) {
-  //       if(allRecepies[i].title.includes(this.searchWord)) {
-  //         searchArray.push(allRecepies[i])
-  //       }
-  //   }
-  //   return {
-  //     recepies: searchArray
-  //   };
-  // }
 };
 </script>
 
 <style scoped>
-
-  .box-wrapper {
-    display: grid;
-    grid-gap: 20px;
-  }
+.box-wrapper {
+  display: grid;
+  grid-gap: 20px;
+}
 
 @media only screen and (max-width: 300px) {
   .box-wrapper {

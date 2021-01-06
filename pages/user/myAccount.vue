@@ -4,15 +4,6 @@
     <div class="box box-two">
       <h3>Mina recept:</h3>
       <div class="recepie-list" v-if="recepies.length">
-        <!-- <nuxt-link
-          class="list-group-item list-group-item-action"
-          :to="'/articles/' + recepie._id"
-          v-for="recepie in recepies"
-          :key="recepie._id"
-        >
-         {{recepie.title}}
-          
-        </nuxt-link> -->
         <ul v-for="recepie in recepies" :key="recepie._id">
           <li @click="showRecepie(recepie)">
             {{ capitalize_Words(recepie.title) }}
@@ -22,10 +13,6 @@
               Radera Recept
             </button>
           </div>
-
-          <!-- <li>
-          <nuxt-link to="/recepie/oneRecepie" :recepie="recepie" :key="recepie._id">One Recepie</nuxt-link>
-        </li> -->
         </ul>
       </div>
       <div v-else>
@@ -52,9 +39,7 @@ export default {
     };
   },
   async asyncData(context) {
-    // auth: "guest";
     const { data } = await context.$axios.get("/api/recepies");
-    // await this.allRecepies = data;
     return {
       allRecepies: data
     };
@@ -109,10 +94,10 @@ export default {
 </script>
 
 <style scoped>
-  .box-wrapper {
-    display: grid;
-    grid-gap: 20px;
-  }
+.box-wrapper {
+  display: grid;
+  grid-gap: 20px;
+}
 
 @media only screen and (max-width: 300px) {
   .box-wrapper {
@@ -150,7 +135,6 @@ export default {
   .box-wrapper {
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
     grid-template-rows: auto auto;
-    
   }
 
   .box-one {

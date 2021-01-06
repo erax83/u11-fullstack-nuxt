@@ -10,23 +10,26 @@
           <li>
             <nuxt-link class="menu-link" to="/">Hem</nuxt-link>
           </li>
-          <!-- <li>
-            <nuxt-link to="/recepie/allRecepies">Recept</nuxt-link>
-          </li> -->
           <li>
             <nuxt-link class="menu-link" to="/recepie/search">Sök</nuxt-link>
           </li>
           <li v-if="$auth.loggedIn">
-            <nuxt-link class="menu-link" to="/recepie/addRecepies">Lägg till recept</nuxt-link>
+            <nuxt-link class="menu-link" to="/recepie/addRecepies"
+              >Lägg till recept</nuxt-link
+            >
           </li>
           <li v-if="!$auth.loggedIn">
-            <nuxt-link class="menu-link" to="/user/register">Registrering</nuxt-link>
+            <nuxt-link class="menu-link" to="/user/register"
+              >Registrering</nuxt-link
+            >
           </li>
           <li v-if="!$auth.loggedIn">
             <nuxt-link class="menu-link" to="/user/login">Logga In</nuxt-link>
           </li>
           <li v-if="$auth.loggedIn">
-            <nuxt-link class="menu-link" to="/user/myAccount">Min Sida</nuxt-link>
+            <nuxt-link class="menu-link" to="/user/myAccount"
+              >Min Sida</nuxt-link
+            >
           </li>
           <li v-if="$auth.loggedIn">
             <nuxt-link class="menu-link" to="/user/logout">Logga ut</nuxt-link>
@@ -50,7 +53,7 @@ export default {
 
 <style>
 @import url("https://fonts.googleapis.com/css2?family=Satisfy&display=swap");
-@import url('https://fonts.googleapis.com/css2?family=Crimson+Text&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Crimson+Text&display=swap");
 
 *,
 *:before,
@@ -73,7 +76,7 @@ html {
 }
 
 p {
-  font-family: 'Crimson Text';
+  font-family: "Crimson Text";
 }
 
 body {
@@ -99,7 +102,6 @@ body {
     );
   background-size: 7em 7em, 5em 5em, 3em 3em, 1em 1em;
   background-color: #f5e9be;
-  /* font: 10px/1.4 "Trebuchet MS", Verdana, sans-serif; */
 }
 
 .wrapper {
@@ -123,9 +125,8 @@ main {
 }
 
 hr {
-  border-top: 1px rgb(44, 22, 7) ;
-  border-bottom: 1px solid rgb(44, 22, 7) ;
-  /* color: black; */
+  border-top: 1px rgb(44, 22, 7);
+  border-bottom: 1px solid rgb(44, 22, 7);
   margin: 8px;
   opacity: 30%;
 }
@@ -144,12 +145,12 @@ nav li {
 }
 
 ul li::hover {
-  content: "\2022";  /* Add content: \2022 is the CSS Code/unicode for a bullet */
-  color: red; /* Change the color */
-  font-weight: bold; /* If you want it to be bold */
-  display: inline-block; /* Needed to add space between the bullet and the text */
-  width: 1em; /* Also needed for space (tweak if needed) */
-  margin-left: -1em; /* Also needed for space (tweak if needed) */
+  content: "\2022";
+  color: red;
+  font-weight: bold;
+  display: inline-block;
+  width: 1em;
+  margin-left: -1em;
 }
 
 .menu-link {
@@ -283,6 +284,4 @@ nuxt-link {
     overflow-y: scroll;
   }
 }
-
-
 </style>

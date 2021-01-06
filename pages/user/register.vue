@@ -74,30 +74,4 @@ export default {
 };
 </script>
 
-<style scoped>
-
-/* @media only screen and (max-width: 300px) {
-  .box-wrapper {
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: auto;
-  }
-}
-
-@media only screen and (min-width: 301px) {
-  .box-wrapper {
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: auto;
-  }
-}
-
-@media only screen and (min-width: 500px) {
-}
-
-@media only screen and (min-width: 900px) {
-}
-
-@media only screen and (min-width: 1200px) {
-} */
-</style>
+<style scoped></style>
