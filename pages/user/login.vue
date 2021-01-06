@@ -1,10 +1,17 @@
 <template>
   <div>
-    <h2>Inloggning</h2>
-
-    <form v-if="!$auth.loggedIn" action="" method="post" @submit.prevent="submitForm()">
+    <div v-if="$auth.loggedIn">
+      <p>Du är nu inloggad.</p>
+    </div>
+    <form
+      v-if="!$auth.loggedIn"
+      action=""
+      method="post"
+      @submit.prevent="submitForm()"
+    >
+      <h2>Inloggning</h2>
       <div>
-        <label for="">Email</label>
+        <label for="">E-post</label>
         <input
           type="text"
           class="form-control"
@@ -17,7 +24,7 @@
       </div>
 
       <div class="form-group">
-        <label for="">Password</label>
+        <label for="">Lösenord</label>
         <input
           type="password"
           class="form-control"
@@ -29,13 +36,8 @@
         </div>
       </div>
 
-      <input v-if="!$auth.loggedIn" type="submit" value="Login" />
-      <nuxt-link to="/">Cancel</nuxt-link>
-      
+      <input v-if="!$auth.loggedIn" type="submit" value="Logga in" />
     </form>
-    <div v-if="$auth.loggedIn">
-        <p>Du är inloggad</p>
-      </div>
   </div>
 </template>
 
@@ -72,4 +74,4 @@ export default {
 };
 </script>
 
-<style></style>
+<style scoped></style>

@@ -2,22 +2,10 @@
   <div>
     <h2>Recept</h2>
     <div>
-      <div v-if="recepies.length">
-        <!-- <nuxt-link
-          class="list-group-item list-group-item-action"
-          :to="'/articles/' + recepie._id"
-          v-for="recepie in recepies"
-          :key="recepie._id"
-        >
-         {{recepie.title}}
-          
-        </nuxt-link> -->
+      <div class="recepie-list" v-if="recepies.length">
         <ul v-for="recepie in recepies" :key="recepie._id">
           <li @click="showRecepie(recepie)">
             {{ recepie.title }}
-            
-            <!-- <nuxt-link to="/recepie/oneRecepie">{{recepie.title}}</nuxt-link> -->
-
           </li>
         </ul>
       </div>
@@ -25,14 +13,9 @@
         No records found.
       </div>
     </div>
-    <div v-if="$auth.loggedIn">
-      <p>Inloggad</p>
-    </div>
-    <div v-if="$auth.loggedIn">
-      <p>{{ $auth.user }}</p>
-    </div>
-    <div>
-      <Recepie :currentRecepie="this.currentRecepie"/>
+    <hr />
+    <div v-if="this.currentRecepie != null">
+      <Recepie :currentRecepie="this.currentRecepie" />
     </div>
   </div>
 </template>
@@ -51,7 +34,7 @@ export default {
       testRecepies: null,
       recepies: [],
       recepieToggle: false,
-      currentRecepie: Object
+      currentRecepie: null
     };
   },
   methods: {
@@ -62,18 +45,16 @@ export default {
       this.currentRecepie = recepie;
       console.log(this.currentRecepie);
     }
-    // addRecepies: function(data) {
-    //   this.$store.commit("changeRecepies", data);
-    // }
   },
   async asyncData(context) {
     const { data } = await context.$axios.get("/api/recepies");
-    // await addRecepies(data);
+    const reverseData = await data.reverse();
+    const latestData = await reverseData.slice(0, 9);
     return {
-      recepies: data
+      recepies: latestData
     };
   }
 };
 </script>
 
-<style></style>
+<style scoped></style>

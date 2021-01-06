@@ -1,61 +1,59 @@
 <template>
-  <div>
-    <div>
+  <div class="wrapper">
+    <header>
+      <h1>Receptcirkeln</h1>
+      <div v-if="$auth.loggedIn">
+        <p id="logg-symbol">Inloggad</p>
+      </div>
       <nav>
         <ul>
           <li>
-            <nuxt-link to="/">Home</nuxt-link>
+            <nuxt-link class="menu-link" to="/">Hem</nuxt-link>
           </li>
           <li>
-            <nuxt-link to="/recepie/allRecepies">Recept</nuxt-link>
-          </li>
-          <li>
-            <nuxt-link to="/recepie/search">Sök</nuxt-link>
+            <nuxt-link class="menu-link" to="/recepie/search">Sök</nuxt-link>
           </li>
           <li v-if="$auth.loggedIn">
-            <nuxt-link to="/recepie/addRecepies">Lägg till recept</nuxt-link>
+            <nuxt-link class="menu-link" to="/recepie/addRecepies"
+              >Lägg till recept</nuxt-link
+            >
           </li>
           <li v-if="!$auth.loggedIn">
-            <nuxt-link to="/user/register">Registrering</nuxt-link>
+            <nuxt-link class="menu-link" to="/user/register"
+              >Registrering</nuxt-link
+            >
           </li>
           <li v-if="!$auth.loggedIn">
-            <nuxt-link to="/user/login">Logga In</nuxt-link>
+            <nuxt-link class="menu-link" to="/user/login">Logga In</nuxt-link>
           </li>
           <li v-if="$auth.loggedIn">
-            <nuxt-link to="/user/myAccount">Mitt Konto</nuxt-link>
+            <nuxt-link class="menu-link" to="/user/myAccount"
+              >Min Sida</nuxt-link
+            >
           </li>
           <li v-if="$auth.loggedIn">
-            <nuxt-link to="/user/logout">Logga ut</nuxt-link>
+            <nuxt-link class="menu-link" to="/user/logout">Logga ut</nuxt-link>
           </li>
         </ul>
       </nav>
-    </div>
+      <hr />
+    </header>
 
-    <div>
+    <main>
       <nuxt />
-    </div>
+    </main>
   </div>
 </template>
 
 <script>
 export default {
-  middleware: "auth",
-
-}
+  middleware: "auth"
+};
 </script>
 
 <style>
-html {
-  font-family: "Source Sans Pro", -apple-system, BlinkMacSystemFont, "Segoe UI",
-    Roboto, "Helvetica Neue", Arial, sans-serif;
-  font-size: 16px;
-  word-spacing: 1px;
-  -ms-text-size-adjust: 100%;
-  -webkit-text-size-adjust: 100%;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
-  box-sizing: border-box;
-}
+@import url("https://fonts.googleapis.com/css2?family=Satisfy&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Crimson+Text&display=swap");
 
 *,
 *:before,
@@ -64,32 +62,226 @@ html {
   margin: 0;
 }
 
-.button--green {
+html {
+  font-family: Satisfy;
+  font-size: 16px;
+  color: rgb(44, 22, 7);
+  word-spacing: 1px;
+  line-height: 1.6;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  box-sizing: border-box;
+}
+
+p {
+  font-family: "Crimson Text";
+}
+
+body {
+  background: linear-gradient(
+      90deg,
+      rgba(255, 225, 132, 0.7) 50%,
+      rgba(255, 255, 255, 0) 50%
+    ),
+    linear-gradient(
+      90deg,
+      rgba(32, 113, 120, 0.3) 50%,
+      rgba(255, 255, 255, 0) 50%
+    ),
+    linear-gradient(
+      90deg,
+      rgba(255, 150, 102, 0.3) 50%,
+      rgba(255, 255, 255, 0) 50%
+    ),
+    linear-gradient(
+      90deg,
+      rgba(23, 76, 79, 0.1) 50%,
+      rgba(255, 255, 255, 0) 50%
+    );
+  background-size: 7em 7em, 5em 5em, 3em 3em, 1em 1em;
+  background-color: #f5e9be;
+}
+
+.wrapper {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto auto;
+}
+
+header {
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 1;
+  grid-row-end: 2;
+}
+
+main {
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 2;
+  grid-row-end: 3;
+}
+
+hr {
+  border-top: 1px rgb(44, 22, 7);
+  border-bottom: 1px solid rgb(44, 22, 7);
+  margin: 8px;
+  opacity: 30%;
+}
+
+li {
+  list-style-type: square;
+}
+
+li:hover {
+  cursor: pointer;
+  color: rgb(46, 106, 155);
+}
+
+nav li {
+  margin-right: 10px;
+}
+
+ul li::hover {
+  content: "\2022";
+  color: red;
+  font-weight: bold;
   display: inline-block;
-  border-radius: 4px;
-  border: 1px solid #3b8070;
-  color: #3b8070;
+  width: 1em;
+  margin-left: -1em;
+}
+
+.menu-link {
   text-decoration: none;
-  padding: 10px 30px;
+  color: rgb(78, 39, 11);
+  padding: 5px;
+  border-radius: 10px;
 }
 
-.button--green:hover {
-  color: #fff;
-  background-color: #3b8070;
+.menu-link:hover {
+  color: salmon;
+  background: rgb(78, 39, 11);
 }
 
-.button--grey {
+#logg-symbol {
+  color: rgb(46, 106, 155);
+}
+
+button {
+  background-color: orangered; /* Green */
+  border: none;
+  color: white;
+  padding: 5px;
+  text-align: center;
+  text-decoration: none;
   display: inline-block;
-  border-radius: 4px;
-  border: 1px solid #35495e;
-  color: #35495e;
-  text-decoration: none;
-  padding: 10px 30px;
-  margin-left: 15px;
+  font-size: 14px;
+  border-radius: 2px;
+  margin-bottom: 10px;
 }
 
-.button--grey:hover {
-  color: #fff;
-  background-color: #35495e;
+button:hover {
+  cursor: pointer;
+  color: pink;
+}
+
+#ingrediences,
+#instructions {
+  margin: 10px;
+  width: 90%;
+}
+
+nuxt-link {
+  text-decoration: none;
+}
+
+@media only screen and (max-width: 300px) {
+  body {
+    font-size: 16px;
+    padding: 15px;
+  }
+
+  nav li {
+    display: block;
+  }
+
+  .recepie-list {
+    height: 150px;
+    width: 100%;
+    overflow: hidden;
+    overflow-y: scroll;
+  }
+}
+
+@media only screen and (min-width: 301px) {
+  body {
+    font-size: 16px;
+    padding: 10px;
+  }
+
+  nav li {
+    display: block;
+  }
+
+  .recepie-list {
+    height: 300px;
+    width: 100%;
+    overflow: hidden;
+    overflow-y: scroll;
+  }
+}
+
+@media only screen and (min-width: 485px) {
+  body {
+    font-size: 18px;
+    padding: 10px;
+  }
+
+  header {
+    padding-left: 10px;
+  }
+
+  main {
+    padding: 5px 20px;
+  }
+
+  nav li {
+    display: inline;
+  }
+
+  .recepie-list {
+    height: 400px;
+    width: 100%;
+    overflow: hidden;
+    overflow-y: scroll;
+  }
+}
+
+@media only screen and (min-width: 900px) {
+  body {
+    font-size: 19px;
+    padding: 10px;
+  }
+
+  header {
+    padding-left: 15px;
+  }
+
+  main {
+    padding: 5px 25px;
+  }
+
+  nav li {
+    display: inline;
+  }
+
+  .recepie-list {
+    height: 600px;
+    width: 100%;
+    overflow: hidden;
+    overflow-y: scroll;
+  }
 }
 </style>

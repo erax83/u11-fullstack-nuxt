@@ -1,25 +1,42 @@
 <template>
   <div>
-    <h1>Lägg till recept</h1>
+    <h2>Lägg till recept</h2>
+    <br />
     <form action="" method="post" @submit.prevent="submitForm()">
-      <div>
-        <label for>Recept Titel</label>
-        <input type="text" v-model="title" />
-      </div>
-      <div>
-        <label for>Ingredienser</label>
-        <input type="text" v-model="ingrediences" />
-      </div>
-      <div>
-        <label for>Instruktioner</label>
-        <input type="text" v-model="instructions" />
-      </div>
-      <input type="submit" value="Registrera" />
-
-      <div v-if="$auth.loggedIn">
-        <p>Inloggad</p>
-      </div>
-      <nuxt-link to="/">Avbryt</nuxt-link>
+      <label for="title"><h4>Recept Titel</h4></label>
+      <input id="title" type="text" v-model="title" />
+      <br />
+      <br />
+      <label for="ingrediences"><h4>Ingredienser</h4></label>
+      <p>
+        Ange ett mått eller antal samt ingrediens per rad.
+      </p>
+      <p>Exempel:</p>
+      <p>100 g smör</p>
+      <p>1 dl mjöl</p>
+      <textarea
+        id="ingrediences"
+        type="text"
+        rows="10"
+        cols="30"
+        v-model="ingrediences"
+      />
+      <br />
+      <br />
+      <label for="instructions"><h4>Instruktioner</h4></label>
+      <p>Använd nummer, punkt och ny rad för varge nytt moment.</p>
+      <p>Exempel:</p>
+      <p>1. Smält smöret</p>
+      <p>2. Blanda mjöl, socker och salt i en bunke.</p>
+      <textarea
+        id="instructions"
+        type="text"
+        rows="10"
+        cols="30"
+        v-model="instructions"
+      />
+      <br />
+      <input id="submit-button" type="submit" value="Registrera" />
     </form>
   </div>
 </template>
@@ -28,7 +45,6 @@
 export default {
   middleware: "auth",
   data() {
-    // auth: "guest";
     return {
       errors: null,
       title: null,
@@ -36,7 +52,7 @@ export default {
       instructions: null,
       myRecepies: null,
       status: false,
-      recepieId: null,
+      recepieId: null
       // author: this.$auth.user.user_name
     };
   },
@@ -60,7 +76,7 @@ export default {
           // console.log('auth: ' + $auth.user);
           console.log("Recepie id: " + response.data._id);
           this.recepieId = response.data._id;
-          alert('Recept registrerat!')
+          alert("Recept registrerat!");
           this.addToUser();
           window.location.reload(true);
         });
@@ -70,31 +86,30 @@ export default {
       const userId = this.$auth.user._id;
       console.log("Auth id: " + this.$auth.user.user_name);
       console.log("RecepieId: " + this.recepieId);
-
-      // this.$axios
-      //   .put("/api/users/update" + this.$route.params.id, {
-      //     $push: {
-      //       recepieId: this.recepieId
-      //     }
-          
-      //   })
-      //   .then(response => {
-      //     console.log("put then: ");
-      //     console.log(response);
-      //     if (response.data._id) {
-      //       this.$router.push({ name: "users", params: { created: "yes" } });
-      //     }
-      //   })
-      //   .catch(error => {
-      //     console.log("put error: ");
-      //     console.log(error);
-      //     if (error.response.data.errors) {
-      //       this.errors = error.response.data.errors;
-      //     }
-      //   });
     }
   }
 };
 </script>
 
-<style></style>
+<style scoped>
+form {
+  max-width: 600px;
+}
+
+#submit-button {
+  background-color: steelblue; /* Green */
+  border: none;
+  color: white;
+  padding: 5px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  border-radius: 2px;
+}
+
+#submit-button:hover {
+  cursor: pointer;
+  color: rgb(213, 221, 231);
+}
+</style>
