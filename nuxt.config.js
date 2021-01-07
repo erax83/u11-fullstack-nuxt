@@ -91,8 +91,8 @@ module.exports = {
   },
 
   server: {
-    // host: '0' 
-    port: process.env.PORT || 3000
+    host: '0' 
+    // port: process.env.PORT || 3000
   },
 
   serverMiddleware: ["~/api/index.js"]
