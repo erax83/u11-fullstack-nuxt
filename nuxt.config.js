@@ -61,10 +61,10 @@ module.exports = {
         tokenType: "Bearer"
       }
     },
-    redirect: false,
+    redirect: false
     // redirect: {
-    //   login: "/user/login", 
-    //   logout: "/", 
+    //   login: "/user/login",
+    //   logout: "/",
     //   home: "/",
     // },
     // rewriteRedirects: true
@@ -73,7 +73,9 @@ module.exports = {
    ** Axios module configuration
    ** See https://axios.nuxtjs.org/options
    */
-  axios: {},
+  axios: {
+    baseURL: process.env.HOST || "https://localhost:3000"
+  },
   /*
    ** Build configuration
    */
@@ -85,14 +87,12 @@ module.exports = {
   },
 
   router: {
-    middleware: [
-      'auth',
-    ]
+    middleware: ["auth"]
   },
 
   server: {
-    host: '0' 
-    // port: process.env.PORT || 3000
+    // host: '0'
+    port: process.env.HOST || 3000
   },
 
   serverMiddleware: ["~/api/index.js"]
