@@ -74,7 +74,7 @@ module.exports = {
    ** See https://axios.nuxtjs.org/options
    */
   axios: {
-    baseURL: process.env.HOST || "https://localhost:3000"
+    // baseURL: process.env.HOST || "https://localhost:3000"
   },
   /*
    ** Build configuration
@@ -92,7 +92,7 @@ module.exports = {
 
   server: {
     // host: '0'
-    port: process.env.HOST || 3000
+    // port: process.env.HOST || 3000
   },
 
   serverMiddleware: ["~/api/index.js"]
